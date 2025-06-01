@@ -1,63 +1,59 @@
-# Superlistafront
+# 💻 superlista-front
 
-Este proyecto fue generado usando [Angular CLI](https://github.com/angular/angular-cli), versión 19.2.8.
+Este es el proyecto frontend de **SúperLista**, desarrollado en Angular.  
+Proporciona la interfaz web para que los usuarios puedan gestionar menús, recetas, ingredientes y listas de la compra.
 
-## Servidor de desarrollo
+---
 
-Para iniciar un servidor local de desarrollo, ejecuta:
+## 🚀 Cómo ejecutar
 
+### Requisitos
+✅ Node.js + npm  
+✅ Angular CLI
+
+### Pasos
 ```bash
+npm install
 ng serve
 ```
 
-Una vez que el servidor esté corriendo, abre tu navegador en la dirección `http://localhost:4200/`.  
-La aplicación se recargará automáticamente cada vez que modifiques alguno de los archivos fuente.
-
-## Generación de código (Scaffolding)
-
-Angular CLI incluye potentes herramientas de scaffolding para generar automáticamente estructuras de código.  
-Por ejemplo, para generar un nuevo componente, ejecuta:
-
-```bash
-ng generate component nombre-del-componente
+La aplicación estará disponible en:
+```
+http://localhost:4200
 ```
 
-Si quieres ver la lista completa de esquemas disponibles (como `components`, `directives`, `pipes`), ejecuta:
+---
 
-```bash
-ng generate --help
+## 🛠 Tecnologías usadas
+
+- Angular 19
+- Angular Material (UI moderna)
+- Formly (formularios dinámicos)
+- Bootstrap (estilo pastel moderno)
+- html2pdf / jsPDF (exportación a PDF)
+
+---
+
+## 📄 Documentación
+
+La documentación técnica generada con:
+- 🔧 **Compodoc** (documentación de componentes, servicios y estructura Angular)
+
+Puedes consultarla localmente en:
+```
+./documentation/index.html
 ```
 
-## Compilación (Build)
 
-Para compilar el proyecto, usa:
+---
 
-```bash
-ng build
-```
+## 👤 Autor
 
-Esto generará los artefactos de compilación en la carpeta `dist/`.  
-Por defecto, el build de producción optimiza tu aplicación para obtener el mejor rendimiento y velocidad.
+José Carlos Hernando (hderozas)  
+🔗 [github.com/hderozas](https://github.com/hderozas)
 
-## Ejecutar tests unitarios
+---
 
-Para lanzar los tests unitarios usando [Karma](https://karma-runner.github.io), ejecuta:
+## 📄 Licencia
 
-```bash
-ng test
-```
-
-## Ejecutar tests end-to-end
-
-Para realizar pruebas end-to-end (e2e), ejecuta:
-
-```bash
-ng e2e
-```
-
-Ten en cuenta que Angular CLI no incluye un framework e2e por defecto, así que puedes elegir el que mejor se adapte a tus necesidades.
-
-## Recursos adicionales
-
-Si quieres más información sobre cómo usar Angular CLI, incluyendo referencias detalladas de comandos, visita la página oficial:  
-[Angular CLI - Overview and Command Reference](https://angular.dev/tools/cli).
+Este proyecto está bajo la licencia MIT.
