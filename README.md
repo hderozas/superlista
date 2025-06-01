@@ -93,7 +93,7 @@ http://localhost:4200
 - 🔧 **Compodoc (frontend)** → Documentación generada de los componentes, servicios y estructura Angular.  
   📁 Ruta:
   ```
-  superlista-front/documentation/index.html
+  superlista-front/doc/index.html
   ```
 
 - 📖 **Javadoc (backend)** → Documentación generada del código Java (servicios, controladores, entidades, etc.).  
