@@ -1,0 +1,30 @@
+.stat-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.transition-fade {
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.pastel-card {
+  border: 2px solid #cfcfff;
+  background: #fdfdff;
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pastel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(160, 160, 255, 0.2);
+}

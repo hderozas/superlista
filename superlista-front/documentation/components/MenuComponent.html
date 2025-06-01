@@ -1,0 +1,2135 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>superlistafront documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">superlistafront documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MenuComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/usuario/menu/menu.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente encargado de gestionar los menús semanales en la aplicación SúperLista.
+Permite:</p>
+<ul>
+<li>Listar los menús creados por el usuario.</li>
+<li>Crear nuevos menús seleccionando categorías.</li>
+<li>Editar, eliminar y gestionar recetas asociadas a cada menú.</li>
+<li>Generar listas de compra desde un menú.</li>
+<li>Exportar el detalle del menú como archivo PDF.</li>
+</ul>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-menu</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./menu.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./menu.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categoriasSeleccionadas" >categoriasSeleccionadas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#contenidoParaPdf" >contenidoParaPdf</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#estilosOriginales" >estilosOriginales</a>
+                            </li>
+                            <li>
+                                <a href="#menus" >menus</a>
+                            </li>
+                            <li>
+                                <a href="#menuSeleccionado" >menuSeleccionado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalConfirmar" >modalConfirmar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalMenuDetalle" >modalMenuDetalle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalNuevoMenu" >modalNuevoMenu</a>
+                            </li>
+                            <li>
+                                <a href="#todasCategorias" >todasCategorias</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirModalNuevoMenu" >abrirModalNuevoMenu</a>
+                            </li>
+                            <li>
+                                <a href="#aplicarEstilosPDFManual" >aplicarEstilosPDFManual</a>
+                            </li>
+                            <li>
+                                <a href="#contarTotalRecetas" >contarTotalRecetas</a>
+                            </li>
+                            <li>
+                                <a href="#crearMenu" >crearMenu</a>
+                            </li>
+                            <li>
+                                <a href="#descargarPDF" >descargarPDF</a>
+                            </li>
+                            <li>
+                                <a href="#editarMenu" >editarMenu</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarMenu" >eliminarMenu</a>
+                            </li>
+                            <li>
+                                <a href="#generarListaCompra" >generarListaCompra</a>
+                            </li>
+                            <li>
+                                <a href="#gestionarMenu" >gestionarMenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadMenus" >loadMenus</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerCategoriasMenu" >obtenerCategoriasMenu</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerNombresRecetas" >obtenerNombresRecetas</a>
+                            </li>
+                            <li>
+                                <a href="#openModalConfirmar" >openModalConfirmar</a>
+                            </li>
+                            <li>
+                                <a href="#restaurarEstilosOriginales" >restaurarEstilosOriginales</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCategoria" >toggleCategoria</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(menuService: <a href="../injectables/MenuSemanalService.html" target="_self">MenuSemanalService</a>, listaService: <a href="../injectables/ListaCompraResourceService.html" target="_self">ListaCompraResourceService</a>, snackBarService: <a href="../injectables/SnackbarService.html" target="_self">SnackbarService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/usuario/menu/menu.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>menuService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MenuSemanalService.html" target="_self" >MenuSemanalService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para gestionar los menús semanales.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>listaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ListaCompraResourceService.html" target="_self" >ListaCompraResourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para generar listas de compra.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBarService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SnackbarService.html" target="_self" >SnackbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para mostrar notificaciones flotantes.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio Angular Router para la navegación.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalNuevoMenu"></a>
+                    <span class="name">
+                        <span ><b>abrirModalNuevoMenu</b></span>
+                        <a href="#abrirModalNuevoMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalNuevoMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal para crear un nuevo menú con todas las categorías seleccionadas por defecto.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aplicarEstilosPDFManual"></a>
+                    <span class="name">
+                        <span ><b>aplicarEstilosPDFManual</b></span>
+                        <a href="#aplicarEstilosPDFManual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>aplicarEstilosPDFManual(elemento: HTMLElement)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="214"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:214</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aplica estilos inline manuales a las tablas y celdas para que sean capturadas correctamente por html2canvas.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>elemento</td>
+                                            <td>
+                                                        <code>HTMLElement</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Elemento HTML raíz sobre el que aplicar los estilos.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contarTotalRecetas"></a>
+                    <span class="name">
+                        <span ><b>contarTotalRecetas</b></span>
+                        <a href="#contarTotalRecetas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>contarTotalRecetas(menu: <a href="../interfaces/MenuSemanalDto.html" target="_self">MenuSemanalDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cuenta el número total de recetas asociadas a un menú.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>menu</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MenuSemanalDto.html" target="_self" >MenuSemanalDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Menú objetivo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Número total de recetas.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crearMenu"></a>
+                    <span class="name">
+                        <span ><b>crearMenu</b></span>
+                        <a href="#crearMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>crearMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el modal y navega al componente de creación de menú,
+pasando las categorías seleccionadas como parámetro de query.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="descargarPDF"></a>
+                    <span class="name">
+                        <span ><b>descargarPDF</b></span>
+                        <a href="#descargarPDF"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>descargarPDF()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:241</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Captura el contenido HTML del menú y lo descarga como archivo PDF.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editarMenu"></a>
+                    <span class="name">
+                        <span ><b>editarMenu</b></span>
+                        <a href="#editarMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editarMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el modal de detalle y navega al componente de edición de menú,
+pasando el ID del menú como parámetro de query.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarMenu"></a>
+                    <span class="name">
+                        <span ><b>eliminarMenu</b></span>
+                        <a href="#eliminarMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina el menú actualmente seleccionado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generarListaCompra"></a>
+                    <span class="name">
+                        <span ><b>generarListaCompra</b></span>
+                        <a href="#generarListaCompra"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generarListaCompra()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="174"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Genera una lista de la compra a partir del menú seleccionado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gestionarMenu"></a>
+                    <span class="name">
+                        <span ><b>gestionarMenu</b></span>
+                        <a href="#gestionarMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gestionarMenu(menu: <a href="../interfaces/MenuSemanalDto.html" target="_self">MenuSemanalDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal de detalle para gestionar un menú existente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>menu</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MenuSemanalDto.html" target="_self" >MenuSemanalDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Menú seleccionado.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMenus"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadMenus</b></span>
+                        <a href="#loadMenus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadMenus()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Llama al servicio para obtener los menús del usuario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hook de inicialización del componente.
+Carga todos los menús del usuario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerCategoriasMenu"></a>
+                    <span class="name">
+                        <span ><b>obtenerCategoriasMenu</b></span>
+                        <a href="#obtenerCategoriasMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerCategoriasMenu(menu: <a href="../interfaces/MenuSemanalDto.html" target="_self">MenuSemanalDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="200"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:200</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene las categorías únicas de un menú.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>menu</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MenuSemanalDto.html" target="_self" >MenuSemanalDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Menú objetivo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array de categorías.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerNombresRecetas"></a>
+                    <span class="name">
+                        <span ><b>obtenerNombresRecetas</b></span>
+                        <a href="#obtenerNombresRecetas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerNombresRecetas(menu: <a href="../interfaces/MenuSemanalDto.html" target="_self">MenuSemanalDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="191"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene los nombres únicos de las recetas en un menú.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>menu</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MenuSemanalDto.html" target="_self" >MenuSemanalDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Menú objetivo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array de nombres de recetas.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openModalConfirmar"></a>
+                    <span class="name">
+                        <span ><b>openModalConfirmar</b></span>
+                        <a href="#openModalConfirmar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openModalConfirmar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal de confirmación para eliminar un menú.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restaurarEstilosOriginales"></a>
+                    <span class="name">
+                        <span ><b>restaurarEstilosOriginales</b></span>
+                        <a href="#restaurarEstilosOriginales"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>restaurarEstilosOriginales()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restaura los estilos originales guardados después de exportar a PDF.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCategoria"></a>
+                    <span class="name">
+                        <span ><b>toggleCategoria</b></span>
+                        <a href="#toggleCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCategoria(cat: <a href="../objects/CategoriaEnum.html" target="_self">CategoriaEnum</a>, checked: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/usuario/menu/menu.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Marca o desmarca una categoría para la creación de un nuevo menú.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cat</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/variables.html#CategoriaEnum" target="_self" >CategoriaEnum</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Categoría objetivo.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>checked</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Estado del checkbox.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoriasSeleccionadas"></a>
+                    <span class="name">
+                        <span ><b>categoriasSeleccionadas</b></span>
+                        <a href="#categoriasSeleccionadas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CategoriaEnum[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/usuario/menu/menu.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Categorías seleccionadas para la creación de un nuevo menú.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenidoParaPdf"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>contenidoParaPdf</b></span>
+                        <a href="#contenidoParaPdf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;contenidoParaPdf&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/app/usuario/menu/menu.component.ts:206</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al contenedor HTML que se usará para exportar el PDF del menú.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estilosOriginales"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>estilosOriginales</b></span>
+                        <a href="#estilosOriginales"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;Element | string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="208" class="link-to-prism">src/app/usuario/menu/menu.component.ts:208</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapa para guardar los estilos originales de los elementos antes de exportar a PDF.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menus"></a>
+                    <span class="name">
+                        <span ><b>menus</b></span>
+                        <a href="#menus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MenuSemanalDto.html" target="_self" >MenuSemanalDto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/usuario/menu/menu.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de menús cargados desde el backend.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuSeleccionado"></a>
+                    <span class="name">
+                        <span ><b>menuSeleccionado</b></span>
+                        <a href="#menuSeleccionado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MenuSemanalDto.html" target="_self" >MenuSemanalDto | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/usuario/menu/menu.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Menú actualmente seleccionado para mostrar detalle o editar.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalConfirmar"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalConfirmar</b></span>
+                        <a href="#modalConfirmar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;modalConfirmar&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/usuario/menu/menu.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al modal de confirmación (por ejemplo, para eliminar un menú).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalMenuDetalle"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalMenuDetalle</b></span>
+                        <a href="#modalMenuDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;modalMenuDetalle&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/usuario/menu/menu.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al modal para ver el detalle de un menú.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalNuevoMenu"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalNuevoMenu</b></span>
+                        <a href="#modalNuevoMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;modalNuevoMenu&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/usuario/menu/menu.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al modal para crear un nuevo menú.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todasCategorias"></a>
+                    <span class="name">
+                        <span ><b>todasCategorias</b></span>
+                        <a href="#todasCategorias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CategoriaEnum[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;DESAYUNO&#x27;, &#x27;ALMUERZO&#x27;, &#x27;COMIDA&#x27;, &#x27;MERIENDA&#x27;, &#x27;CENA&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/usuario/menu/menu.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista completa de categorías disponibles.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, ElementRef, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {DiaComidaDto, ListaCompraResourceService, MenuSemanalDto, MenuSemanalService} from &#x27;../../../openapi&#x27;;
+import {SnackbarService} from &#x27;../../core/services/snack-bar.service&#x27;;
+import {ModalComponent} from &#x27;../../core/componentes/modal/modal.component&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
+import html2canvas from &#x27;html2canvas&#x27;;
+import jsPDF from &#x27;jspdf&#x27;;
+import CategoriaEnum &#x3D; DiaComidaDto.CategoriaEnum;
+
+/**
+ * @component
+ * @name MenuComponent
+ * @description
+ * Componente encargado de gestionar los menús semanales en la aplicación SúperLista.
+ * Permite:
+ * - Listar los menús creados por el usuario.
+ * - Crear nuevos menús seleccionando categorías.
+ * - Editar, eliminar y gestionar recetas asociadas a cada menú.
+ * - Generar listas de compra desde un menú.
+ * - Exportar el detalle del menú como archivo PDF.
+ */
+@Component({
+  selector: &#x27;app-menu&#x27;,
+  templateUrl: &#x27;./menu.component.html&#x27;,
+  styleUrl: &#x27;./menu.component.scss&#x27;,
+  standalone: false,
+})
+export class MenuComponent implements OnInit {
+
+  /** Lista de menús cargados desde el backend. */
+  menus: MenuSemanalDto[] &#x3D; [];
+  /** Categorías seleccionadas para la creación de un nuevo menú. */
+  categoriasSeleccionadas: CategoriaEnum[] &#x3D; [];
+  /** Lista completa de categorías disponibles. */
+  todasCategorias: CategoriaEnum[] &#x3D; [&#x27;DESAYUNO&#x27;, &#x27;ALMUERZO&#x27;, &#x27;COMIDA&#x27;, &#x27;MERIENDA&#x27;, &#x27;CENA&#x27;];
+
+  /** Menú actualmente seleccionado para mostrar detalle o editar. */
+  menuSeleccionado: MenuSemanalDto | null &#x3D; null;
+
+  /** Referencia al modal para crear un nuevo menú. */
+  @ViewChild(&#x27;modalNuevoMenu&#x27;) modalNuevoMenu!: ModalComponent;
+  /** Referencia al modal para ver el detalle de un menú. */
+  @ViewChild(&#x27;modalMenuDetalle&#x27;) modalMenuDetalle!: ModalComponent;
+  /** Referencia al modal de confirmación (por ejemplo, para eliminar un menú). */
+  @ViewChild(&#x27;modalConfirmar&#x27;) modalConfirmar!: ModalComponent;
+
+  /**
+   * Constructor del componente.
+   * @param menuService Servicio para gestionar los menús semanales.
+   * @param listaService Servicio para generar listas de compra.
+   * @param snackBarService Servicio para mostrar notificaciones flotantes.
+   * @param router Servicio Angular Router para la navegación.
+   */
+  constructor(
+    private menuService: MenuSemanalService,
+    private listaService: ListaCompraResourceService,
+    private snackBarService: SnackbarService,
+    private router: Router,
+  ) {}
+
+  /**
+   * Hook de inicialización del componente.
+   * Carga todos los menús del usuario.
+   */
+  ngOnInit(): void {
+    this.loadMenus();
+  }
+  /**
+   * Llama al servicio para obtener los menús del usuario.
+   */
+  private loadMenus() {
+    this.menuService.obtenerMisMenus().subscribe({
+      next: (data) &#x3D;&gt; {
+        this.menus &#x3D; data.data || [];
+      },
+      error: () &#x3D;&gt; {
+        this.snackBarService.error(&#x27;Error al cargar tus menús&#x27;);
+      }
+    });
+  }
+  /**
+   * Abre el modal para crear un nuevo menú con todas las categorías seleccionadas por defecto.
+   */
+  abrirModalNuevoMenu() {
+    this.categoriasSeleccionadas &#x3D; [...this.todasCategorias];
+    this.modalNuevoMenu.open();
+  }
+  /**
+   * Marca o desmarca una categoría para la creación de un nuevo menú.
+   * @param cat Categoría objetivo.
+   * @param checked Estado del checkbox.
+   */
+  toggleCategoria(cat: CategoriaEnum, checked: boolean) {
+    if (checked) {
+      this.categoriasSeleccionadas.push(cat);
+    } else {
+      this.categoriasSeleccionadas &#x3D; this.categoriasSeleccionadas.filter(c &#x3D;&gt; c !&#x3D;&#x3D; cat);
+    }
+  }
+  /**
+   * Cierra el modal y navega al componente de creación de menú,
+   * pasando las categorías seleccionadas como parámetro de query.
+   */
+  crearMenu() {
+    const categoriasFinal &#x3D; this.categoriasSeleccionadas.length &gt; 0 ? this.categoriasSeleccionadas : undefined;
+
+    this.modalNuevoMenu.close();
+
+    // Navegar al componente de crear-menu con las categorías seleccionadas
+    this.router.navigate([&#x27;/superlista/crear-menu&#x27;], {
+      queryParams: {
+        categorias: categoriasFinal?.join(&#x27;,&#x27;) // pasamos como string &quot;DESAYUNO,COMIDA,CENA&quot;
+      }
+    });
+  }
+
+  /**
+   * Abre el modal de detalle para gestionar un menú existente.
+   * @param menu Menú seleccionado.
+   */
+  gestionarMenu(menu: MenuSemanalDto) {
+    this.menuSeleccionado &#x3D; menu;
+    this.modalMenuDetalle.open();
+  }
+  /**
+   * Cuenta el número total de recetas asociadas a un menú.
+   * @param menu Menú objetivo.
+   * @returns Número total de recetas.
+   */
+  contarTotalRecetas(menu: MenuSemanalDto): number {
+    if (!menu.diasComidas) return 0;
+
+    return menu.diasComidas.reduce((total, dia) &#x3D;&gt; {
+      return total + (dia.recetas?.length || 0);
+    }, 0);
+  }
+  /**
+   * Cierra el modal de detalle y navega al componente de edición de menú,
+   * pasando el ID del menú como parámetro de query.
+   */
+  editarMenu() {
+    this.modalMenuDetalle.close();
+    this.router.navigate([&#x27;/superlista/crear-menu&#x27;], {
+      queryParams: { menuId: this.menuSeleccionado!.id }
+    });
+  }
+  /**
+   * Elimina el menú actualmente seleccionado.
+   */
+  eliminarMenu() {
+    if (!this.menuSeleccionado) return;
+
+    this.menuService.eliminarMenu(this.menuSeleccionado.id!).subscribe({
+      next: () &#x3D;&gt; {
+        this.snackBarService.success(&#x27;Menú eliminado correctamente&#x27;);
+        this.modalConfirmar.close();
+        this.modalMenuDetalle.close();
+        this.loadMenus();
+      },
+      error: () &#x3D;&gt; {
+        this.snackBarService.error(&#x27;Error al eliminar el menú&#x27;);
+      }
+    });
+  }
+  /**
+   * Abre el modal de confirmación para eliminar un menú.
+   */
+  openModalConfirmar() {
+    this.modalConfirmar.open();
+  }
+  /**
+   * Genera una lista de la compra a partir del menú seleccionado.
+   */
+  generarListaCompra() {
+    if (!this.menuSeleccionado) return;
+    this.listaService.generarLista({ menuId: this.menuSeleccionado.id! }).subscribe({
+      next: () &#x3D;&gt; {
+        this.snackBarService.success(&#x27;Lista de la compra generada correctamente&#x27;);
+        this.modalMenuDetalle.close();
+      },
+      error: () &#x3D;&gt; {
+        this.snackBarService.error(&#x27;Error al generar la lista de la compra&#x27;);
+      }
+    });
+  }
+  /**
+   * Obtiene los nombres únicos de las recetas en un menú.
+   * @param menu Menú objetivo.
+   * @returns Array de nombres de recetas.
+   */
+  obtenerNombresRecetas(menu: MenuSemanalDto): string[] {
+    const recetas &#x3D; menu.diasComidas?.flatMap(d &#x3D;&gt; d.recetas || []) || [];
+    return Array.from(new Set(recetas.map(r &#x3D;&gt; r.nombre!)));
+  }
+  /**
+   * Obtiene las categorías únicas de un menú.
+   * @param menu Menú objetivo.
+   * @returns Array de categorías.
+   */
+  obtenerCategoriasMenu(menu: MenuSemanalDto): string[] {
+    const categorias &#x3D; menu.diasComidas?.map(dc &#x3D;&gt; dc.categoria!) || [];
+    return Array.from(new Set(categorias)); // Elimina duplicados
+  }
+
+  /** Referencia al contenedor HTML que se usará para exportar el PDF del menú. */
+  @ViewChild(&#x27;contenidoParaPdf&#x27;) contenidoParaPdf!: ElementRef;
+  /** Mapa para guardar los estilos originales de los elementos antes de exportar a PDF. */
+  private estilosOriginales: Map&lt;Element, string&gt; &#x3D; new Map();
+
+  /**
+   * Aplica estilos inline manuales a las tablas y celdas para que sean capturadas correctamente por html2canvas.
+   * @param elemento Elemento HTML raíz sobre el que aplicar los estilos.
+   */
+  aplicarEstilosPDFManual(elemento: HTMLElement) {
+    const elementos &#x3D; elemento.querySelectorAll(&#x27;table.pastel-table, th, td, tr&#x27;);
+    elementos.forEach(el &#x3D;&gt; {
+      const htmlEl &#x3D; el as HTMLElement;
+      if (!this.estilosOriginales.has(htmlEl)) {
+        this.estilosOriginales.set(htmlEl, htmlEl.getAttribute(&#x27;style&#x27;) || &#x27;&#x27;);
+      }
+      htmlEl.style.border &#x3D; &#x27;1px solid #c5c5e5&#x27;;
+      htmlEl.style.borderCollapse &#x3D; &#x27;collapse&#x27;;
+    });
+  }
+
+  /**
+   * Restaura los estilos originales guardados después de exportar a PDF.
+   */
+  restaurarEstilosOriginales() {
+    this.estilosOriginales.forEach((valor, el) &#x3D;&gt; {
+      el.setAttribute(&#x27;style&#x27;, valor);
+    });
+    this.estilosOriginales.clear();
+  }
+
+
+
+  /**
+   * Captura el contenido HTML del menú y lo descarga como archivo PDF.
+   */
+  descargarPDF() {
+    const el &#x3D; this.contenidoParaPdf.nativeElement;
+
+    this.aplicarEstilosPDFManual(el);
+
+    html2canvas(el, { scale: 2 }).then(canvas &#x3D;&gt; {
+      const imgData &#x3D; canvas.toDataURL(&#x27;image/png&#x27;);
+      const pdf &#x3D; new jsPDF({
+        orientation: &#x27;landscape&#x27;,
+        unit: &#x27;px&#x27;,
+        format: &#x27;a4&#x27;
+      });
+
+      const pageWidth &#x3D; pdf.internal.pageSize.getWidth();
+      const imgWidth &#x3D; pageWidth;
+      const imgHeight &#x3D; canvas.height * (imgWidth / canvas.width);
+
+      pdf.addImage(imgData, &#x27;PNG&#x27;, 0, 0, imgWidth, imgHeight);
+      pdf.save(&#x27;menu.pdf&#x27;);
+
+      this.restaurarEstilosOriginales();
+    });
+  }
+
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid vh-100 d-flex flex-column pastel-bg&quot;&gt;
+  &lt;!-- Cabecera --&gt;
+  &lt;div class&#x3D;&quot;row border-bottom&quot;&gt;
+    &lt;app-header&gt;&lt;/app-header&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Título + botón --&gt;
+  &lt;div class&#x3D;&quot;row sticky-top bg-white z-3 border-bottom shadow-sm py-2 bg-opacity-50&quot;&gt;
+    &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center w-100 px-5&quot;&gt;
+      &lt;h3 class&#x3D;&quot;m-0 text-primary pastel-title&quot;&gt;🗓️ Mis menús semanales&lt;/h3&gt;
+      &lt;button class&#x3D;&quot;btn btn-pastel btn-sm rounded-pill px-3&quot; (click)&#x3D;&quot;abrirModalNuevoMenu()&quot;&gt;➕ Crear menú&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Cards de menús --&gt;
+  &lt;div class&#x3D;&quot;row overflow-auto p-4&quot; style&#x3D;&quot;max-height: calc(100vh - 150px);&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-4 mb-4&quot; *ngFor&#x3D;&quot;let menu of menus&quot;&gt;
+      &lt;div class&#x3D;&quot;card card-menu pastel-shadow border-0 text-center h-100&quot;
+           style&#x3D;&quot;cursor: pointer;&quot;
+           (click)&#x3D;&quot;gestionarMenu(menu)&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header border-0 bg-transparent&quot;&gt;
+          &lt;h5 class&#x3D;&quot;mb-1 text-secondary&quot;&gt;📅 Menú #{{ menu.id }}&lt;/h5&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;card-body px-3 py-2&quot;&gt;
+          &lt;div class&#x3D;&quot;text-muted small mb-1&quot;&gt;
+            &lt;strong&gt;{{ contarTotalRecetas(menu) }}&lt;/strong&gt; recetas asignadas
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;small pastel-title mb-1&quot;&gt;
+            {{ obtenerCategoriasMenu(menu).join(&#x27;, &#x27;) }}
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;text-muted small text-truncate&quot;&gt;
+            {{ obtenerNombresRecetas(menu).slice(0, 3).join(&#x27;, &#x27;) }}{{ obtenerNombresRecetas(menu).length &gt; 3 ? &#x27;...&#x27; : &#x27;&#x27; }}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- Modal crear menú --&gt;
+&lt;app-modal #modalNuevoMenu [title]&#x3D;&quot;&#x27;Nuevo menú&#x27;&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label class&#x3D;&quot;form-label&quot;&gt;Selecciona qué comidas quieres en el menú&lt;/label&gt;
+
+      &lt;div *ngFor&#x3D;&quot;let categoria of todasCategorias&quot; class&#x3D;&quot;form-check&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;checkbox&quot;
+          class&#x3D;&quot;form-check-input&quot;
+          [checked]&#x3D;&quot;categoriasSeleccionadas.includes(categoria)&quot;
+          (change)&#x3D;&quot;toggleCategoria(categoria, $any($event.target).checked)&quot;/&gt;
+        &lt;label class&#x3D;&quot;form-check-label&quot;&gt;{{ categoria }}&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;button modal-footer class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;crearMenu()&quot;&gt;
+    Crear menú
+  &lt;/button&gt;
+&lt;/app-modal&gt;
+
+&lt;!-- Modal ver menú detalle --&gt;
+&lt;app-modal #modalMenuDetalle [title]&#x3D;&quot;&#x27;Detalle del menú&#x27;&quot; [size]&#x3D;&quot;&#x27;xl&#x27;&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div #contenidoParaPdf class&#x3D;&quot;bg-white p-3 rounded pastel-shadow&quot; style&#x3D;&quot;min-width: 1000px;&quot;&gt;
+      &lt;app-menu-detalle *ngIf&#x3D;&quot;menuSeleccionado&quot; [menu]&#x3D;&quot;menuSeleccionado&quot;&gt;&lt;/app-menu-detalle&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button modal-footer class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;editarMenu()&quot;&gt;
+    ✏️ Editar menú
+  &lt;/button&gt;
+
+  &lt;button modal-footer class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;openModalConfirmar()&quot;&gt;
+    🗑️ Eliminar menú
+  &lt;/button&gt;
+
+  &lt;button modal-footer class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;generarListaCompra()&quot;&gt;
+    🛒 Generar lista de la compra
+  &lt;/button&gt;
+
+  &lt;button modal-footer class&#x3D;&quot;btn btn-warning&quot; (click)&#x3D;&quot;descargarPDF()&quot;&gt;
+    📄 Descargar PDF
+  &lt;/button&gt;
+&lt;/app-modal&gt;
+
+&lt;!--Modal confirmar eliminación--&gt;
+&lt;app-modal #modalConfirmar [title]&#x3D;&quot;&#x27;Detalle del menú&#x27;&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;p&gt;¿Seguro que quieres eliminar el menú?&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;button modal-footer class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;eliminarMenu()&quot;&gt;Eliminar menú&lt;/button&gt;
+&lt;/app-modal&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid vh-100 d-flex flex-column pastel-bg">  <!-- Cabecera -->  <div class="row border-bottom">    <app-header></app-header>  </div>  <!-- Título + botón -->  <div class="row sticky-top bg-white z-3 border-bottom shadow-sm py-2 bg-opacity-50">    <div class="d-flex justify-content-between align-items-center w-100 px-5">      <h3 class="m-0 text-primary pastel-title">🗓️ Mis menús semanales</h3>      <button class="btn btn-pastel btn-sm rounded-pill px-3" (click)="abrirModalNuevoMenu()">➕ Crear menú</button>    </div>  </div>  <!-- Cards de menús -->  <div class="row overflow-auto p-4" style="max-height: calc(100vh - 150px);">    <div class="col-md-4 mb-4" *ngFor="let menu of menus">      <div class="card card-menu pastel-shadow border-0 text-center h-100"           style="cursor: pointer;"           (click)="gestionarMenu(menu)">        <div class="card-header border-0 bg-transparent">          <h5 class="mb-1 text-secondary">📅 Menú #{{ menu.id }}</h5>        </div>        <div class="card-body px-3 py-2">          <div class="text-muted small mb-1">            <strong>{{ contarTotalRecetas(menu) }}</strong> recetas asignadas          </div>          <div class="small pastel-title mb-1">            {{ obtenerCategoriasMenu(menu).join(\', \') }}          </div>          <div class="text-muted small text-truncate">            {{ obtenerNombresRecetas(menu).slice(0, 3).join(\', \') }}{{ obtenerNombresRecetas(menu).length > 3 ? \'...\' : \'\' }}          </div>        </div>      </div>    </div>  </div></div><!-- Modal crear menú --><app-modal #modalNuevoMenu [title]="\'Nuevo menú\'">  <div class="modal-body">    <div class="mb-3">      <label class="form-label">Selecciona qué comidas quieres en el menú</label>      <div *ngFor="let categoria of todasCategorias" class="form-check">        <input          type="checkbox"          class="form-check-input"          [checked]="categoriasSeleccionadas.includes(categoria)"          (change)="toggleCategoria(categoria, $any($event.target).checked)"/>        <label class="form-check-label">{{ categoria }}</label>      </div>    </div>  </div>  <button modal-footer class="btn btn-success" (click)="crearMenu()">    Crear menú  </button></app-modal><!-- Modal ver menú detalle --><app-modal #modalMenuDetalle [title]="\'Detalle del menú\'" [size]="\'xl\'">  <div class="modal-body">    <div #contenidoParaPdf class="bg-white p-3 rounded pastel-shadow" style="min-width: 1000px;">      <app-menu-detalle *ngIf="menuSeleccionado" [menu]="menuSeleccionado"></app-menu-detalle>    </div>  </div>  <button modal-footer class="btn btn-primary" (click)="editarMenu()">    ✏️ Editar menú  </button>  <button modal-footer class="btn btn-danger" (click)="openModalConfirmar()">    🗑️ Eliminar menú  </button>  <button modal-footer class="btn btn-success" (click)="generarListaCompra()">    🛒 Generar lista de la compra  </button>  <button modal-footer class="btn btn-warning" (click)="descargarPDF()">    📄 Descargar PDF  </button></app-modal><!--Modal confirmar eliminación--><app-modal #modalConfirmar [title]="\'Detalle del menú\'">  <div class="modal-body">    <p>¿Seguro que quieres eliminar el menú?</p>  </div>  <button modal-footer class="btn btn-danger" (click)="eliminarMenu()">Eliminar menú</button></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CrearMenuComponent', 'selector': 'app-crear-menu'},{'name': 'FormlyHorizontalWrapper', 'selector': 'formly-horizontal-wrapper'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePublicoComponent', 'selector': 'app-home-publico'},{'name': 'IngredientesComponent', 'selector': 'app-ingredientes'},{'name': 'ListadoIngredientesComponent', 'selector': 'app-listado-ingredientes'},{'name': 'ListadoRecetasComponent', 'selector': 'app-listado-recetas'},{'name': 'ListasComponent', 'selector': 'app-listas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MenuDetalleComponent', 'selector': 'app-menu-detalle'},{'name': 'MenuTablaComponent', 'selector': 'app-menu-tabla'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'RecetasComponent', 'selector': 'app-recetas'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MenuComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

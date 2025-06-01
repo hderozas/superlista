@@ -1,0 +1,29 @@
+<div class="container-fluid p-4">
+
+  <div class="table-responsive overflow-auto flex-grow-1 rounded-1">
+    <table class="table table-bordered text-center align-middle w-100 pastel-table">
+      <thead class="table-light text-center align-middle">
+      <tr>
+        <th class="th-categoria px-1 text-secondary pastel-title fw-semibold responsive-text">COMIDA / DÍA</th>
+        <th *ngFor="let dia of diasSemana" class="text-secondary pastel-title fw-semibold responsive-text">{{ dia }}</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let categoria of categoriasComida">
+        <th class="th-categoria responsive-text text-center align-middle text-nowrap text-capitalize text-secondary bg-light py-1 px-1 small fw-semibold">
+          {{ mostrarCategoria(categoria).toUpperCase() }}
+        </th>
+        <td *ngFor="let dia of diasSemana" class="align-middle text-center px-0">
+          <div *ngFor="let receta of obtenerRecetas(dia, categoria)">
+            {{ getEmojiDominantePorReceta(receta) }} {{ receta.nombre }}
+          </div>
+        </td>
+      </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+
+</div>

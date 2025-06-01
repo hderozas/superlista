@@ -1,0 +1,45 @@
+.account-widget {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1050;
+}
+
+.transition-fade {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.navbar {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+/* El host del componente no debe tener padding ni margen */
+:host {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Y forzamos dentro del nav que no haya padding horizontal */
+:host ::ng-deep nav.navbar {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+

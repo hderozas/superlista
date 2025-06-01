@@ -1,0 +1,23 @@
+<div *ngIf="visible" @fadeOverlay class="modal d-block justify-content-center align-items-center" (click)="close()" style="background: rgba(0,0,0,0.5)">
+  <div class="modal-dialog modal-dialog-centered" [ngClass]="dialogClass" role="document" (click)="$event.stopPropagation()">
+    <div class="modal-content" @scaleContent>
+      <div class="modal-header" *ngIf="title?.trim()">
+        <div class="w-100 text-center">
+          <h5 class="modal-title m-0">{{ title }}</h5>
+        </div>
+        <button type="button" class="btn-close" aria-label="Cerrar" (click)="close()"></button>
+      </div>
+
+      <div class="modal-body mx-3">
+        <ng-content></ng-content>
+      </div>
+
+      <div class="modal-footer">
+        <ng-content select="[modal-footer]"></ng-content>
+        <button type="button" class="btn btn-secondary" (click)="close()">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

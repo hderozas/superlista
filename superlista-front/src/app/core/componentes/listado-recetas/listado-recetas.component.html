@@ -1,0 +1,93 @@
+<div class="border rounded pastel-shadow d-flex flex-column h-100 p-3 bg-white bg-opacity-75 ">
+
+  <!-- Barra superior -->
+  <div class="mb-3 d-flex align-items-center gap-2">
+    <input
+      type="text"
+      class="form-control form-control-sm pastel-shadow"
+      placeholder="🔍 Buscar recetas..."
+      [(ngModel)]="recetaSearchText"
+      (ngModelChange)="applyRecetaFilter()" />
+    <button class="btn btn-pastel btn-sm" (click)="modalNuevaReceta.open()">
+      ➕
+    </button>
+  </div>
+
+  <!-- Lista de recetas -->
+  <div class="flex-grow-1 overflow-auto">
+    <div class="h-100" cdkDropList id="recetasList" [cdkDropListData]="filteredRecetas" [cdkDropListSortingDisabled]="true">
+      <div *ngFor="let receta of filteredRecetas" class="card pastel-shadow mb-3 border-0" cdkDrag [cdkDragData]="receta">
+        <div class="card-body d-flex justify-content-between align-items-center px-3 py-2">
+            <span class="text-truncate" [ngbTooltip]="receta.nombre" container="body" placement="top" triggers="manual" #t="ngbTooltip" (mouseenter)="abrirTooltipConDelay(t)" (mouseleave)="cancelarTooltip(t)">
+              {{ receta.nombre }}
+            </span>
+          <button class="btn btn-outline-primary btn-sm" (click)="abrirDetalleReceta(receta)">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal #modalDetalleReceta [title]="currentReceta!.nombre || 'Detalle receta'">
+  <div class="modal-body">
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="🔍 Buscar ingredientes..."
+      [(ngModel)]="ingredienteSearchText"
+      (ngModelChange)="applyIngredienteFilter()" />
+
+    <div class="row row-cols-1 row-cols-md-2 g-2 overflow-auto" style="max-height: 40vh;">
+      <div class="col" *ngFor="let ing of sortedIngredientesFiltrados">
+        <div class="card pastel-shadow h-100">
+          <div class="card-body d-flex align-items-center">
+            <input
+              type="checkbox"
+              class="form-check-input me-2"
+              [checked]="isIngredienteEnReceta(ing.id!)"
+              (change)="toggleIngredienteEnReceta(ing, $any($event.target).checked)" />
+            <span>{{ ing.nombre }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+
+
+<!-- Modal: Crear nueva receta -->
+<app-modal #modalNuevaReceta title="Nueva receta">
+  <div class="modal-body">
+    <div class="mb-3">
+      <label class="form-label">Nombre de la receta</label>
+      <input class="form-control" [(ngModel)]="nuevoNombre" placeholder="Ej: Sopa de verduras" />
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="🔍 Buscar ingredientes..."
+        [(ngModel)]="ingredienteSearchText"
+        (ngModelChange)="applyIngredienteFilter()" />
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-2 overflow-auto" style="max-height: 40vh;">
+      <div class="col" *ngFor="let ing of ingredientesFiltrados">
+        <div class="card pastel-shadow h-100">
+          <div class="card-body d-flex align-items-center">
+            <input
+              type="checkbox"
+              class="form-check-input me-2"
+              [checked]="ingredientesSeleccionadosParaNuevaReceta.has(ing.id!)"
+              (change)="toggleIngredienteParaNuevaReceta(ing.id!, $any($event.target).checked)" />
+            <span>{{ ing.nombre }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button modal-footer class="btn btn-success" (click)="guardarNuevaReceta()">Guardar</button>
+</app-modal>
+

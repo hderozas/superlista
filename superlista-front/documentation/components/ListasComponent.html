@@ -1,0 +1,2334 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>superlistafront documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">superlistafront documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ListasComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/usuario/listas/listas.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que gestiona la visualización, edición, eliminación y exportación de listas de la compra
+en la aplicación SúperLista. Permite:</p>
+<ul>
+<li>Listar las listas de la compra del usuario.</li>
+<li>Editar los ingredientes de una lista en tiempo real.</li>
+<li>Eliminar listas con confirmación.</li>
+<li>Exportar listas como PDF con formato visual.</li>
+</ul>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>AfterViewInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-listas</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./listas.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./listas.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cambiosIngredientes$" >cambiosIngredientes$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#contenidoListaPdf" >contenidoListaPdf</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#estilosOriginalesLista" >estilosOriginalesLista</a>
+                            </li>
+                            <li>
+                                <a href="#filtroIngrediente" >filtroIngrediente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#getEmojiPorCategoria" >getEmojiPorCategoria</a>
+                            </li>
+                            <li>
+                                <a href="#ingredientesNoincluidos" >ingredientesNoincluidos</a>
+                            </li>
+                            <li>
+                                <a href="#ingredientesSeleccionados" >ingredientesSeleccionados</a>
+                            </li>
+                            <li>
+                                <a href="#listaAEliminar" >listaAEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#listas" >listas</a>
+                            </li>
+                            <li>
+                                <a href="#listaSeleccionada" >listaSeleccionada</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalConfirmarEliminar" >modalConfirmarEliminar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalEditarLista" >modalEditarLista</a>
+                            </li>
+                            <li>
+                                <a href="#todosIngredientes" >todosIngredientes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirModalEditar" >abrirModalEditar</a>
+                            </li>
+                            <li>
+                                <a href="#cargarListas" >cargarListas</a>
+                            </li>
+                            <li>
+                                <a href="#confirmarEliminacion" >confirmarEliminacion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#debouncedGuardarCambios" >debouncedGuardarCambios</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#descargarListaComoPDF" >descargarListaComoPDF</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarLista" >eliminarLista</a>
+                            </li>
+                            <li>
+                                <a href="#getFullCardClasses" >getFullCardClasses</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarConfirmarEliminar" >mostrarConfirmarEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetModalData" >resetModalData</a>
+                            </li>
+                            <li>
+                                <a href="#toggleIngrediente" >toggleIngrediente</a>
+                            </li>
+                            <li>
+                                <a href="#trackById" >trackById</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#ingredientesFiltrados" >ingredientesFiltrados</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(listaService: <a href="../injectables/ListaCompraResourceService.html" target="_self">ListaCompraResourceService</a>, ingredienteService: <a href="../injectables/IngredienteService.html" target="_self">IngredienteService</a>, snackBar: <a href="../injectables/SnackbarService.html" target="_self">SnackbarService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/usuario/listas/listas.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>listaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ListaCompraResourceService.html" target="_self" >ListaCompraResourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para gestionar listas de compra.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>ingredienteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IngredienteService.html" target="_self" >IngredienteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para gestionar ingredientes.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SnackbarService.html" target="_self" >SnackbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para mostrar notificaciones flotantes.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalEditar"></a>
+                    <span class="name">
+                        <span ><b>abrirModalEditar</b></span>
+                        <a href="#abrirModalEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalEditar(lista: <a href="../interfaces/ListaCompraDto.html" target="_self">ListaCompraDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal para editar una lista específica.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lista</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ListaCompraDto.html" target="_self" >ListaCompraDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Lista seleccionada.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarListas"></a>
+                    <span class="name">
+                        <span ><b>cargarListas</b></span>
+                        <a href="#cargarListas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarListas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga todas las listas de compra del usuario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmarEliminacion"></a>
+                    <span class="name">
+                        <span ><b>confirmarEliminacion</b></span>
+                        <a href="#confirmarEliminacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmarEliminacion()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Confirma y ejecuta la eliminación de la lista marcada.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="debouncedGuardarCambios"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>debouncedGuardarCambios</b></span>
+                        <a href="#debouncedGuardarCambios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>debouncedGuardarCambios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Guarda los cambios en la lista con un debounce.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="descargarListaComoPDF"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>descargarListaComoPDF</b></span>
+                        <a href="#descargarListaComoPDF"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>descargarListaComoPDF(lista: <a href="../interfaces/ListaCompraDto.html" target="_self">ListaCompraDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="274"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Descarga la lista seleccionada como un archivo PDF,
+renderizando cada página con html2canvas.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lista</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ListaCompraDto.html" target="_self" >ListaCompraDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Lista objetivo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarLista"></a>
+                    <span class="name">
+                        <span ><b>eliminarLista</b></span>
+                        <a href="#eliminarLista"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarLista(listaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina una lista específica.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>listaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de la lista a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFullCardClasses"></a>
+                    <span class="name">
+                        <span ><b>getFullCardClasses</b></span>
+                        <a href="#getFullCardClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFullCardClasses(categoria: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Devuelve las clases CSS completas para una tarjeta de ingrediente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>categoria</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Categoría del ingrediente.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Arreglo de clases CSS.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarConfirmarEliminar"></a>
+                    <span class="name">
+                        <span ><b>mostrarConfirmarEliminar</b></span>
+                        <a href="#mostrarConfirmarEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mostrarConfirmarEliminar(lista: <a href="../interfaces/ListaCompraDto.html" target="_self">ListaCompraDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="242"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:242</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal para confirmar la eliminación de una lista.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lista</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ListaCompraDto.html" target="_self" >ListaCompraDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Lista objetivo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hook de postinicialización de la vista.
+Se suscribe al cierre del modal para resetear datos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hook de inicialización.
+Carga las listas y se suscribe al Subject de cambios con debounce.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetModalData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetModalData</b></span>
+                        <a href="#resetModalData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetModalData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resetea los datos internos del modal al cerrarlo.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleIngrediente"></a>
+                    <span class="name">
+                        <span ><b>toggleIngrediente</b></span>
+                        <a href="#toggleIngrediente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleIngrediente(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, checked: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Marca o desmarca un ingrediente en la lista seleccionada.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del ingrediente.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>checked</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Estado del checkbox.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackById"></a>
+                    <span class="name">
+                        <span ><b>trackById</b></span>
+                        <a href="#trackById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackById(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, item: IngredienteDto)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/usuario/listas/listas.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Función de optimización para el *ngFor.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Índice del elemento.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                        <code>IngredienteDto</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Ingrediente.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>ID del ingrediente.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiosIngredientes$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cambiosIngredientes$</b></span>
+                        <a href="#cambiosIngredientes$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/usuario/listas/listas.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject para detectar cambios en los ingredientes con debounce.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenidoListaPdf"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>contenidoListaPdf</b></span>
+                        <a href="#contenidoListaPdf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;contenidoListaPdf&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="265" class="link-to-prism">src/app/usuario/listas/listas.component.ts:265</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al contenedor HTML que se usará para exportar el PDF.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estilosOriginalesLista"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>estilosOriginalesLista</b></span>
+                        <a href="#estilosOriginalesLista"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;HTMLElement, string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="267" class="link-to-prism">src/app/usuario/listas/listas.component.ts:267</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapa para guardar estilos originales antes de exportar.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filtroIngrediente"></a>
+                    <span class="name">
+                        <span ><b>filtroIngrediente</b></span>
+                        <a href="#filtroIngrediente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/app/usuario/listas/listas.component.ts:220</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Texto del filtro aplicado a los ingredientes no incluidos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEmojiPorCategoria"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>getEmojiPorCategoria</b></span>
+                        <a href="#getEmojiPorCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>getEmojiPorCategoria</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="340" class="link-to-prism">src/app/usuario/listas/listas.component.ts:340</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Helper que obtiene el emoji visual asociado a una categoría.
+See utils.getEmojiPorCategoria</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ingredientesNoincluidos"></a>
+                    <span class="name">
+                        <span ><b>ingredientesNoincluidos</b></span>
+                        <a href="#ingredientesNoincluidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IngredienteDto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/usuario/listas/listas.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de ingredientes que no están incluidos en la lista seleccionada.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ingredientesSeleccionados"></a>
+                    <span class="name">
+                        <span ><b>ingredientesSeleccionados</b></span>
+                        <a href="#ingredientesSeleccionados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set&lt;number&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/usuario/listas/listas.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>IDs de ingredientes actualmente seleccionados en la lista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaAEliminar"></a>
+                    <span class="name">
+                        <span ><b>listaAEliminar</b></span>
+                        <a href="#listaAEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ListaCompraDto.html" target="_self" >ListaCompraDto | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">src/app/usuario/listas/listas.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista marcada para eliminación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listas"></a>
+                    <span class="name">
+                        <span ><b>listas</b></span>
+                        <a href="#listas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ListaCompraDto.html" target="_self" >ListaCompraDto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/usuario/listas/listas.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Listas de compra cargadas desde el backend.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaSeleccionada"></a>
+                    <span class="name">
+                        <span ><b>listaSeleccionada</b></span>
+                        <a href="#listaSeleccionada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ListaCompraDto.html" target="_self" >ListaCompraDto | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/usuario/listas/listas.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista actualmente seleccionada para edición.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalConfirmarEliminar"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalConfirmarEliminar</b></span>
+                        <a href="#modalConfirmarEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;modalConfirmarEliminar&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">src/app/usuario/listas/listas.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al modal de confirmación para eliminar lista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalEditarLista"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalEditarLista</b></span>
+                        <a href="#modalEditarLista"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;modalEditarLista&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/usuario/listas/listas.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al modal de edición de lista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todosIngredientes"></a>
+                    <span class="name">
+                        <span ><b>todosIngredientes</b></span>
+                        <a href="#todosIngredientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IngredienteDto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/usuario/listas/listas.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista completa de ingredientes disponibles.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ingredientesFiltrados"></a>
+                        <span class="name"><b>ingredientesFiltrados</b><a href="#ingredientesFiltrados"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>ingredientesFiltrados()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/app/usuario/listas/listas.component.ts:225</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter computado que filtra los ingredientes no incluidos según el texto ingresado.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>IngredienteDto[]</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {IngredienteDto, IngredienteService, ListaCompraDto, ListaCompraResourceService} from &#x27;../../../openapi&#x27;;
+import {SnackbarService} from &#x27;../../core/services/snack-bar.service&#x27;;
+import {ModalComponent} from &#x27;../../core/componentes/modal/modal.component&#x27;;
+import {debounceTime, forkJoin, Observable, Subject} from &#x27;rxjs&#x27;;
+import {getCardClasses, getEmojiPorCategoria} from &#x27;../../core/services/utils&#x27;;
+import {animate, style, transition, trigger} from &#x27;@angular/animations&#x27;;
+import html2canvas from &#x27;html2canvas&#x27;;
+import jsPDF from &#x27;jspdf&#x27;;
+
+/**
+ * @component
+ * @name ListasComponent
+ * @description
+ * Componente que gestiona la visualización, edición, eliminación y exportación de listas de la compra
+ * en la aplicación SúperLista. Permite:
+ * - Listar las listas de la compra del usuario.
+ * - Editar los ingredientes de una lista en tiempo real.
+ * - Eliminar listas con confirmación.
+ * - Exportar listas como PDF con formato visual.
+ */
+@Component({
+  selector: &#x27;app-listas&#x27;,
+  standalone: false,
+  templateUrl: &#x27;./listas.component.html&#x27;,
+  styleUrl: &#x27;./listas.component.scss&#x27;,
+  animations: [
+    trigger(&#x27;fadeInOut&#x27;, [
+      transition(&#x27;:enter&#x27;, [
+        style({ opacity: 0, transform: &#x27;scale(0.95) translateY(10px)&#x27; }),
+        animate(&#x27;600ms ease-out&#x27;, style({ opacity: 1, transform: &#x27;scale(1) translateY(0)&#x27; }))
+      ]),
+      transition(&#x27;:leave&#x27;, [
+        animate(&#x27;600ms ease-in&#x27;, style({ opacity: 0, transform: &#x27;scale(0.95) translateY(10px)&#x27; }))
+      ])
+    ])
+  ]
+})
+export class ListasComponent implements OnInit, AfterViewInit {
+  /** Listas de compra cargadas desde el backend. */
+  listas: ListaCompraDto[] &#x3D; [];
+  /** Lista actualmente seleccionada para edición. */
+  listaSeleccionada: ListaCompraDto | null &#x3D; null;
+  /** IDs de ingredientes actualmente seleccionados en la lista. */
+  ingredientesSeleccionados &#x3D; new Set&lt;number&gt;();
+  /** Lista completa de ingredientes disponibles. */
+  todosIngredientes: IngredienteDto[] &#x3D; [];
+  /** Lista de ingredientes que no están incluidos en la lista seleccionada. */
+  ingredientesNoincluidos: IngredienteDto[] &#x3D; [];
+  /** Subject para detectar cambios en los ingredientes con debounce. */
+  private cambiosIngredientes$ &#x3D; new Subject&lt;void&gt;();
+
+  /** Referencia al modal de edición de lista. */
+  @ViewChild(&#x27;modalEditarLista&#x27;) modalEditarLista!: ModalComponent;
+
+  /**
+   * Constructor del componente.
+   * @param listaService Servicio para gestionar listas de compra.
+   * @param ingredienteService Servicio para gestionar ingredientes.
+   * @param snackBar Servicio para mostrar notificaciones flotantes.
+   */
+  constructor(private listaService: ListaCompraResourceService,
+              private ingredienteService: IngredienteService,
+              private snackBar: SnackbarService){}
+  /**
+   * Hook de inicialización.
+   * Carga las listas y se suscribe al Subject de cambios con debounce.
+   */
+  ngOnInit(): void {
+    this.cargarListas();
+    this.cambiosIngredientes$
+      .pipe(debounceTime(100))
+      .subscribe(() &#x3D;&gt; this.debouncedGuardarCambios());
+  }
+  /**
+   * Hook de postinicialización de la vista.
+   * Se suscribe al cierre del modal para resetear datos.
+   */
+  ngAfterViewInit(): void {
+    this.modalEditarLista.closed.subscribe(() &#x3D;&gt; this.resetModalData());
+  }
+
+  /**
+   * Resetea los datos internos del modal al cerrarlo.
+   */
+  private resetModalData(): void {
+    this.listaSeleccionada &#x3D; null;
+    this.ingredientesSeleccionados.clear();
+    this.todosIngredientes &#x3D; [];
+    this.ingredientesNoincluidos &#x3D; [];
+    this.filtroIngrediente &#x3D; &#x27;&#x27;;
+  }
+  /**
+   * Carga todas las listas de compra del usuario.
+   */
+  cargarListas(): void {
+    this.listaService.obtenerMisListas().subscribe({
+      next: res &#x3D;&gt; {
+        this.listas &#x3D; res.data || [];
+      },
+      error: () &#x3D;&gt; this.snackBar.error(&#x27;Error al cargar las listas&#x27;)
+    });
+  }
+
+  /**
+   * Elimina una lista específica.
+   * @param listaId ID de la lista a eliminar.
+   */
+  eliminarLista(listaId: number): void {
+    this.listaService.eliminarLista({ listaCompraId: listaId }).subscribe({
+      next: () &#x3D;&gt; {
+        this.snackBar.success(&#x27;Lista eliminada&#x27;);
+        this.cargarListas();
+      },
+      error: () &#x3D;&gt; this.snackBar.error(&#x27;No se pudo eliminar la lista&#x27;)
+    });
+  }
+
+  /**
+   * Abre el modal para editar una lista específica.
+   * @param lista Lista seleccionada.
+   */
+  abrirModalEditar(lista: ListaCompraDto): void {
+    this.listaSeleccionada &#x3D; lista;
+    this.filtroIngrediente &#x3D; &#x27;&#x27;;
+    this.ingredientesSeleccionados &#x3D; new Set(lista.items!.map(i &#x3D;&gt; i.id!));
+
+    this.ingredienteService.obtenerTodosIngredientes().subscribe({
+      next: res &#x3D;&gt; {
+        this.todosIngredientes &#x3D; res.data || [];
+
+        // Ingredientes que no están en la lista
+        this.ingredientesNoincluidos &#x3D; this.todosIngredientes.filter(ing &#x3D;&gt;
+          !this.ingredientesSeleccionados.has(ing.id!)
+        );
+
+        this.modalEditarLista.open();
+      },
+      error: () &#x3D;&gt; this.snackBar.error(&#x27;No se pudieron cargar los ingredientes&#x27;)
+    });
+  }
+  /**
+   * Marca o desmarca un ingrediente en la lista seleccionada.
+   * @param id ID del ingrediente.
+   * @param checked Estado del checkbox.
+   */
+  toggleIngrediente(id: number, checked: boolean): void {
+    if (checked) {
+      this.ingredientesSeleccionados.add(id);
+    } else {
+      this.ingredientesSeleccionados.delete(id);
+    }
+
+    this.cambiosIngredientes$.next();
+  }
+  /**
+   * Guarda los cambios en la lista con un debounce.
+   */
+  private debouncedGuardarCambios(): void {
+    if (!this.listaSeleccionada) return;
+
+    const idsActuales &#x3D; this.listaSeleccionada.items!.map(i &#x3D;&gt; i.id!);
+    const nuevos &#x3D; [...this.ingredientesSeleccionados].filter(id &#x3D;&gt; !idsActuales.includes(id));
+    const eliminados &#x3D; idsActuales.filter(id &#x3D;&gt; !this.ingredientesSeleccionados.has(id));
+
+    const peticiones: Observable&lt;any&gt;[] &#x3D; [];
+
+    if (nuevos.length &gt; 0) {
+      peticiones.push(this.listaService.anadirItems({
+        listaCompraId: this.listaSeleccionada.id!,
+        ingredienteIds: nuevos
+      }));
+    }
+
+    if (eliminados.length &gt; 0) {
+      peticiones.push(this.listaService.quitarItems({
+        listaCompraId: this.listaSeleccionada.id!,
+        ingredienteIds: eliminados
+      }));
+    }
+
+    if (peticiones.length &#x3D;&#x3D;&#x3D; 0) return;
+
+    forkJoin(peticiones).subscribe({
+      next: () &#x3D;&gt; {
+        // ✅ Solo actualizamos visualmente cuando ya hemos guardado en BBDD
+        this.listaSeleccionada!.items &#x3D; this.todosIngredientes.filter(ing &#x3D;&gt;
+          this.ingredientesSeleccionados.has(ing.id!)
+        );
+        this.ingredientesNoincluidos &#x3D; this.todosIngredientes.filter(ing &#x3D;&gt;
+          !this.ingredientesSeleccionados.has(ing.id!)
+        );
+        this.snackBar.success(&#x27;Lista actualizada&#x27;);
+      },
+      error: () &#x3D;&gt; {
+        this.snackBar.error(&#x27;Error al actualizar la lista&#x27;);
+      }
+    });
+  }
+
+  /**
+   * Función de optimización para el *ngFor.
+   * @param index Índice del elemento.
+   * @param item Ingrediente.
+   * @returns ID del ingrediente.
+   */
+  trackById(index: number, item: IngredienteDto): number {
+    return item.id!;
+  }
+  /**
+   * Devuelve las clases CSS completas para una tarjeta de ingrediente.
+   * @param categoria Categoría del ingrediente.
+   * @returns Arreglo de clases CSS.
+   */
+  getFullCardClasses(categoria: string): string[] {
+    return [&#x27;card-ingrediente&#x27;, ...getCardClasses(categoria)];
+  }
+
+  /** Texto del filtro aplicado a los ingredientes no incluidos. */
+  filtroIngrediente: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Getter computado que filtra los ingredientes no incluidos según el texto ingresado.
+   */
+  get ingredientesFiltrados(): IngredienteDto[] {
+    const filtro &#x3D; this.filtroIngrediente.toLowerCase();
+    return this.ingredientesNoincluidos.filter(ing &#x3D;&gt;
+      ing.nombre?.toLowerCase().includes(filtro)
+    );
+  }
+
+  /** Referencia al modal de confirmación para eliminar lista. */
+  @ViewChild(&#x27;modalConfirmarEliminar&#x27;) modalConfirmarEliminar!: ModalComponent;
+
+  /** Lista marcada para eliminación. */
+  listaAEliminar: ListaCompraDto | null &#x3D; null;
+
+  /**
+   * Abre el modal para confirmar la eliminación de una lista.
+   * @param lista Lista objetivo.
+   */
+  mostrarConfirmarEliminar(lista: ListaCompraDto): void {
+    this.listaAEliminar &#x3D; lista;
+    this.modalConfirmarEliminar.open();
+  }
+
+  /**
+   * Confirma y ejecuta la eliminación de la lista marcada.
+   */
+  confirmarEliminacion(): void {
+    if (!this.listaAEliminar) return;
+
+    this.listaService.eliminarLista({ listaCompraId: this.listaAEliminar.id! }).subscribe({
+      next: () &#x3D;&gt; {
+        this.snackBar.success(&#x27;Lista eliminada&#x27;);
+        this.cargarListas();
+        this.modalConfirmarEliminar.close();
+        this.listaAEliminar &#x3D; null;
+      },
+      error: () &#x3D;&gt; this.snackBar.error(&#x27;No se pudo eliminar la lista&#x27;)
+    });
+  }
+
+  /** Referencia al contenedor HTML que se usará para exportar el PDF. */
+  @ViewChild(&#x27;contenidoListaPdf&#x27;) contenidoListaPdf!: ElementRef;
+  /** Mapa para guardar estilos originales antes de exportar. */
+  private estilosOriginalesLista &#x3D; new Map&lt;HTMLElement, string&gt;();
+
+  /**
+   * Descarga la lista seleccionada como un archivo PDF,
+   * renderizando cada página con html2canvas.
+   * @param lista Lista objetivo.
+   */
+  async descargarListaComoPDF(lista: ListaCompraDto) {
+    const pdf &#x3D; new jsPDF(&#x27;p&#x27;, &#x27;mm&#x27;, &#x27;a4&#x27;);
+    const itemsPerPage &#x3D; 45; // Ajusta según tus necesidades
+    let currentPage &#x3D; 1;
+    let itemsProcessed &#x3D; 0;
+
+    while (itemsProcessed &lt; lista.items!.length) {
+      if (currentPage &gt; 1) pdf.addPage();
+
+      const currentItems &#x3D; lista.items!.slice(itemsProcessed, itemsProcessed + itemsPerPage);
+      itemsProcessed +&#x3D; currentItems.length;
+
+      // Crear contenedor temporal para CADA página
+      const pdfContainer &#x3D; document.createElement(&#x27;div&#x27;);
+      pdfContainer.style.position &#x3D; &#x27;absolute&#x27;;
+      pdfContainer.style.left &#x3D; &#x27;-9999px&#x27;;
+      pdfContainer.style.width &#x3D; &#x27;210mm&#x27;;
+      pdfContainer.style.minHeight &#x3D; &#x27;297mm&#x27;;
+      pdfContainer.style.background &#x3D; &#x27;white&#x27;;
+      pdfContainer.style.padding &#x3D; &#x27;20mm&#x27;;
+      pdfContainer.style.boxSizing &#x3D; &#x27;border-box&#x27;;
+      pdfContainer.style.fontFamily &#x3D; &#x27;Arial, &quot;Noto Emoji&quot;, sans-serif&#x27;;
+      pdfContainer.style.columnCount &#x3D; &#x27;3&#x27;; // 3 columnas
+      pdfContainer.style.columnGap &#x3D; &#x27;15mm&#x27;;
+
+      pdfContainer.innerHTML &#x3D; &#x60;
+      &lt;h1 style&#x3D;&quot;font-size: 24pt; margin-bottom: 15mm; text-align: center; page-break-after: avoid;&quot;&gt;
+        🛒 Lista #${lista.id} ${currentPage &gt; 1 ? &#x60;(Cont.)&#x60; : &#x27;&#x27;}
+      &lt;/h1&gt;
+      &lt;div style&#x3D;&quot;font-size: 14pt;&quot;&gt;
+        ${currentItems.map(ing &#x3D;&gt; &#x60;
+          &lt;div style&#x3D;&quot;break-inside: avoid; margin-bottom: 8mm;&quot;&gt;
+            ☐ ${this.getEmojiPorCategoria(ing.categoria!)} ${ing.nombre}
+          &lt;/div&gt;
+        &#x60;).join(&#x27;&#x27;)}
+      &lt;/div&gt;
+    &#x60;;
+      document.body.appendChild(pdfContainer);
+
+      const canvas &#x3D; await html2canvas(pdfContainer, {
+        scale: 2,
+        useCORS: true,
+        windowWidth: 794,
+        windowHeight: 1123
+      });
+
+      pdf.addImage(
+        canvas,
+        &#x27;PNG&#x27;,
+        0, // x
+        0, // y
+        210, // width (A4)
+        297 // height (A4)
+      );
+
+      document.body.removeChild(pdfContainer);
+      currentPage++;
+    }
+
+    pdf.save(&#x60;lista-compra-${lista.id}.pdf&#x60;);
+  }
+
+  /**
+   * Helper que obtiene el emoji visual asociado a una categoría.
+   * @see utils.getEmojiPorCategoria
+   */
+  protected readonly getEmojiPorCategoria &#x3D; getEmojiPorCategoria;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid vh-100 d-flex flex-column pastel-bg&quot;&gt;
+  &lt;!-- Cabecera --&gt;
+  &lt;div class&#x3D;&quot;row border-bottom&quot;&gt;
+    &lt;app-header&gt;&lt;/app-header&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Título fijo --&gt;
+  &lt;div class&#x3D;&quot;row sticky-top bg-white z-3 border-bottom shadow-sm py-2 bg-opacity-50&quot;&gt;
+    &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center w-100 px-5&quot;&gt;
+      &lt;h3 class&#x3D;&quot; pt-1 m-0 text-primary pastel-title&quot;&gt;🛒 Mis listas de la compra&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Contenido scrollable --&gt;
+  &lt;div class&#x3D;&quot;row overflow-auto p-4&quot; style&#x3D;&quot;max-height: calc(100vh - 150px);&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-4 mb-4&quot; *ngFor&#x3D;&quot;let lista of listas&quot;&gt;
+      &lt;div class&#x3D;&quot;card h-100 card-lista shadow-sm&quot; #cardListaRef&gt;
+        &lt;div class&#x3D;&quot;card-header d-flex justify-content-between align-items-center border-0&quot;&gt;
+          &lt;strong&gt;Lista #{{ lista.id }}&lt;/strong&gt;
+          &lt;div&gt;
+            &lt;button class&#x3D;&quot;btn btn-outline-primary btn-sm me-2&quot; (click)&#x3D;&quot;abrirModalEditar(lista)&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-pencil&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-outline-danger btn-sm&quot; (click)&#x3D;&quot;mostrarConfirmarEliminar(lista)&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-outline-info btn-sm ms-2&quot; (click)&#x3D;&quot;descargarListaComoPDF(lista)&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-file-earmark&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;ul class&#x3D;&quot;list-group list-group-flush scroll-oculto&quot; style&#x3D;&quot;max-height: 150px;&quot;&gt;
+          &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between align-items-center border-0&quot; *ngFor&#x3D;&quot;let ing of lista.items&quot;&gt;
+            &lt;span&gt;{{ getEmojiPorCategoria(ing.categoria!) }} {{ ing.nombre }}&lt;/span&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal EDITAR LISTA --&gt;
+&lt;app-modal #modalEditarLista [title]&#x3D;&quot;&#x27;Editar lista de la compra: &#x27; + (listaSeleccionada?.id ?? &#x27;&#x27;)&quot; [size]&#x3D;&quot;&#x27;lg&#x27;&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-body &quot;&gt;
+
+    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+      &lt;h5 class&#x3D;&quot;text-center&quot;&gt;Ingredientes en la lista&lt;/h5&gt;
+      &lt;div class&#x3D;&quot;d-flex justify-content-center flex-wrap&quot;&gt;
+        &lt;div
+          [@fadeInOut]
+          *ngFor&#x3D;&quot;let ing of listaSeleccionada?.items; trackBy: trackById&quot;
+          [ngClass]&#x3D;&quot;getFullCardClasses(ing.categoria!)&quot;
+          class&#x3D;&quot;d-inline-flex align-items-center shadow-sm rounded-pill px-2 py-1 small gap-1 me-1 mb-1&quot;
+          style&#x3D;&quot;white-space: nowrap;&quot;&gt;
+          &lt;input
+            class&#x3D;&quot;form-check-input m-0&quot;
+            type&#x3D;&quot;checkbox&quot;
+            [checked]&#x3D;&quot;true&quot;
+            (change)&#x3D;&quot;toggleIngrediente(ing.id!, false)&quot;
+            id&#x3D;&quot;ing-{{ ing.id }}&quot;
+            style&#x3D;&quot;vertical-align: middle;&quot; /&gt;
+          &lt;label
+            class&#x3D;&quot;form-check-label mb-0&quot;
+            [for]&#x3D;&quot;&#x27;ing-&#x27; + ing.id&quot;
+            style&#x3D;&quot;cursor: pointer;&quot;&gt;
+            {{ ing.nombre }}
+          &lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+      &lt;h5 class&#x3D;&quot;text-center&quot;&gt;Ingredientes disponibles&lt;/h5&gt;
+      &lt;div class&#x3D;&quot;mb-2 d-flex justify-content-center&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          class&#x3D;&quot;form-control form-control-sm w-50&quot;
+          placeholder&#x3D;&quot;Buscar ingrediente...&quot;
+          [(ngModel)]&#x3D;&quot;filtroIngrediente&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div style&#x3D;&quot;max-height: 300px; overflow-y: auto;&quot; class&#x3D;&quot;border rounded p-2 mx-auto pastel2-bg&quot; [ngStyle]&#x3D;&quot;{ width: &#x27;90%&#x27; }&quot;&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-center flex-wrap&quot;&gt;
+          &lt;div
+            [@fadeInOut]
+            *ngFor&#x3D;&quot;let ing of ingredientesFiltrados; trackBy: trackById&quot;
+            [ngClass]&#x3D;&quot;getFullCardClasses(ing.categoria!)&quot;
+            class&#x3D;&quot;d-inline-flex align-items-center shadow-sm rounded-pill px-2 py-1 small gap-1 me-1 mb-1 bg-white&quot;
+            style&#x3D;&quot;white-space: nowrap;&quot;&gt;
+            &lt;input
+              class&#x3D;&quot;form-check-input m-0&quot;
+              type&#x3D;&quot;checkbox&quot;
+              [checked]&#x3D;&quot;false&quot;
+              (change)&#x3D;&quot;toggleIngrediente(ing.id!, true)&quot;
+              id&#x3D;&quot;ing-add-{{ ing.id }}&quot;
+              style&#x3D;&quot;vertical-align: middle;&quot; /&gt;
+            &lt;label
+              class&#x3D;&quot;form-check-label mb-0&quot;
+              [for]&#x3D;&quot;&#x27;ing-add-&#x27; + ing.id&quot;
+              style&#x3D;&quot;cursor: pointer;&quot;&gt;
+              {{ ing.nombre }}
+            &lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/app-modal&gt;
+
+&lt;!-- Modal CONFIRMAR ELIMINACIÓN --&gt;
+&lt;app-modal #modalConfirmarEliminar&gt;
+  &lt;div class&#x3D;&quot;modal-body mb-0 pb-0&quot;&gt;
+    &lt;p class&#x3D;&quot;text-center&quot;&gt;¿Estás seguro de que deseas eliminar la lista #{{ listaAEliminar?.id }}?&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;button modal-footer class&#x3D;&quot;btn btn-outline-danger&quot; (click)&#x3D;&quot;confirmarEliminacion()&quot;&gt;Eliminar&lt;/button&gt;
+&lt;/app-modal&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid vh-100 d-flex flex-column pastel-bg">  <!-- Cabecera -->  <div class="row border-bottom">    <app-header></app-header>  </div>  <!-- Título fijo -->  <div class="row sticky-top bg-white z-3 border-bottom shadow-sm py-2 bg-opacity-50">    <div class="d-flex justify-content-between align-items-center w-100 px-5">      <h3 class=" pt-1 m-0 text-primary pastel-title">🛒 Mis listas de la compra</h3>    </div>  </div>  <!-- Contenido scrollable -->  <div class="row overflow-auto p-4" style="max-height: calc(100vh - 150px);">    <div class="col-md-4 mb-4" *ngFor="let lista of listas">      <div class="card h-100 card-lista shadow-sm" #cardListaRef>        <div class="card-header d-flex justify-content-between align-items-center border-0">          <strong>Lista #{{ lista.id }}</strong>          <div>            <button class="btn btn-outline-primary btn-sm me-2" (click)="abrirModalEditar(lista)">              <i class="bi bi-pencil"></i>            </button>            <button class="btn btn-outline-danger btn-sm" (click)="mostrarConfirmarEliminar(lista)">              <i class="bi bi-trash"></i>            </button>            <button class="btn btn-outline-info btn-sm ms-2" (click)="descargarListaComoPDF(lista)">              <i class="bi bi-file-earmark"></i>            </button>          </div>        </div>        <ul class="list-group list-group-flush scroll-oculto" style="max-height: 150px;">          <li class="list-group-item d-flex justify-content-between align-items-center border-0" *ngFor="let ing of lista.items">            <span>{{ getEmojiPorCategoria(ing.categoria!) }} {{ ing.nombre }}</span>          </li>        </ul>      </div>    </div>  </div></div><!-- Modal EDITAR LISTA --><app-modal #modalEditarLista [title]="\'Editar lista de la compra: \' + (listaSeleccionada?.id ?? \'\')" [size]="\'lg\'">  <div class="modal-body ">    <div class="mb-4">      <h5 class="text-center">Ingredientes en la lista</h5>      <div class="d-flex justify-content-center flex-wrap">        <div          [@fadeInOut]          *ngFor="let ing of listaSeleccionada?.items; trackBy: trackById"          [ngClass]="getFullCardClasses(ing.categoria!)"          class="d-inline-flex align-items-center shadow-sm rounded-pill px-2 py-1 small gap-1 me-1 mb-1"          style="white-space: nowrap;">          <input            class="form-check-input m-0"            type="checkbox"            [checked]="true"            (change)="toggleIngrediente(ing.id!, false)"            id="ing-{{ ing.id }}"            style="vertical-align: middle;" />          <label            class="form-check-label mb-0"            [for]="\'ing-\' + ing.id"            style="cursor: pointer;">            {{ ing.nombre }}          </label>        </div>      </div>    </div>    <div>      <h5 class="text-center">Ingredientes disponibles</h5>      <div class="mb-2 d-flex justify-content-center">        <input          type="text"          class="form-control form-control-sm w-50"          placeholder="Buscar ingrediente..."          [(ngModel)]="filtroIngrediente" />      </div>      <div style="max-height: 300px; overflow-y: auto;" class="border rounded p-2 mx-auto pastel2-bg" [ngStyle]="{ width: \'90%\' }">        <div class="d-flex justify-content-center flex-wrap">          <div            [@fadeInOut]            *ngFor="let ing of ingredientesFiltrados; trackBy: trackById"            [ngClass]="getFullCardClasses(ing.categoria!)"            class="d-inline-flex align-items-center shadow-sm rounded-pill px-2 py-1 small gap-1 me-1 mb-1 bg-white"            style="white-space: nowrap;">            <input              class="form-check-input m-0"              type="checkbox"              [checked]="false"              (change)="toggleIngrediente(ing.id!, true)"              id="ing-add-{{ ing.id }}"              style="vertical-align: middle;" />            <label              class="form-check-label mb-0"              [for]="\'ing-add-\' + ing.id"              style="cursor: pointer;">              {{ ing.nombre }}            </label>          </div>        </div>      </div>    </div>  </div></app-modal><!-- Modal CONFIRMAR ELIMINACIÓN --><app-modal #modalConfirmarEliminar>  <div class="modal-body mb-0 pb-0">    <p class="text-center">¿Estás seguro de que deseas eliminar la lista #{{ listaAEliminar?.id }}?</p>  </div>  <button modal-footer class="btn btn-outline-danger" (click)="confirmarEliminacion()">Eliminar</button></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CrearMenuComponent', 'selector': 'app-crear-menu'},{'name': 'FormlyHorizontalWrapper', 'selector': 'formly-horizontal-wrapper'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePublicoComponent', 'selector': 'app-home-publico'},{'name': 'IngredientesComponent', 'selector': 'app-ingredientes'},{'name': 'ListadoIngredientesComponent', 'selector': 'app-listado-ingredientes'},{'name': 'ListadoRecetasComponent', 'selector': 'app-listado-recetas'},{'name': 'ListasComponent', 'selector': 'app-listas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MenuDetalleComponent', 'selector': 'app-menu-detalle'},{'name': 'MenuTablaComponent', 'selector': 'app-menu-tabla'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'RecetasComponent', 'selector': 'app-recetas'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ListasComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ListasComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-white bg-opacity-50 shadow-sm w-100 px-4 py-3 position-relative d-flex justify-content-between align-items-center">
+  <!-- Navegación principal -->
+  <div class="d-flex flex-wrap gap-3 justify-content-center ms-5">
+      <button class="btn btn-pastel" (click)="goHome()">🏠 Home</button>
+      <button class="btn btn-pastel" (click)="goIngredientes()">🥕 Ingredientes</button>
+      <button class="btn btn-pastel" (click)="goRecetas()">📖 Recetas</button>
+      <button class="btn btn-pastel" (click)="goListas()">🛒 Listas</button>
+      <button class="btn btn-pastel" (click)="goMenu()">🗓️ Menús</button>
+    </div>
+
+    <!-- Widget de cuenta en esquina superior derecha -->
+    <div class="account-widget"
+         (mouseenter)="mostrarCuenta = true"
+         (mouseleave)="mostrarCuenta = false">
+      <div class="card shadow-sm text-center overflow-hidden"
+           [ngClass]="{ 'p-3': mostrarCuenta, 'p-1': !mostrarCuenta }"
+           [style.width.px]="mostrarCuenta ? 180 : 40"
+           style="transition: width 0.3s ease, padding 0.3s ease;">
+
+        <i class="bi bi-person-circle fs-4 my-1"></i>
+
+        <div *ngIf="mostrarCuenta" class="transition-fade small">
+          <h6 class="mb-1">{{ usuario?.nombre || '' }} {{ usuario?.apellido || '' }}</h6>
+          <small class="text-muted">{{ usuario?.email || '' }}</small>
+          <div class="d-flex justify-content-center mt-2 gap-1">
+            <button class="btn btn-sm btn-outline-primary px-2 py-1" (click)="modalUsuario.open()">Datos</button>
+            <button class="btn btn-sm btn-outline-danger px-2 py-1" (click)="logout()">Salir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<app-modal #modalUsuario [title]="'Datos de ' + (usuario?.username || '')">
+  <div class="modal-body">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+  </div>
+  <button modal-footer class="btn btn-success" (click)="actualizarDatos()">Guardar</button>
+</app-modal>

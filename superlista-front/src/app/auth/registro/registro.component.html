@@ -1,0 +1,40 @@
+<div class="container-fluid vh-100 pastel-bg d-flex justify-content-center align-items-center">
+  <div class="d-flex flex-column align-items-center">
+    <div class="bg-white rounded shadow p-5 w-100 animate__animated animate__fadeIn" style="max-width: 520px;">
+      <!-- Encabezado -->
+      <div class="text-center mb-4">
+        <div class="display-4 mb-2">📝</div>
+        <h4 class="fw-bold pastel-title">Crear una cuenta</h4>
+        <p class="text-muted">Únete a SúperLista y organiza tu comida como un pro 🛒🥦</p>
+      </div>
+
+      <!-- Formulario de registro -->
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+        <button type="submit"
+                class="btn btn-pastel w-100 mt-3"
+                [disabled]="!form.valid">Registrarse</button>
+      </form>
+
+      <!-- Redirección a login -->
+      <div class="text-center mt-4">
+        <p class="mb-1 text-muted small">¿Ya tienes cuenta?</p>
+        <a (click)="router.navigate(['/auth/login'])" class="text-primary fw-semibold" style="cursor: pointer;">Inicia sesión aquí</a>
+      </div>
+    </div>
+
+    <!-- Volver -->
+    <div class="text-center mt-3">
+      <button class="btn btn-link small text-muted" (click)="volverAtras()">
+        <i class="bi bi-arrow-left me-1"></i> Volver a la página anterior
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<app-modal (closed)="cerrarModal()">
+  <div class="text-center">
+    {{ mensaje }}
+  </div>
+</app-modal>

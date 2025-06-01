@@ -1,0 +1,1027 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>superlistafront documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">superlistafront documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#APIS" title="src/openapi/api/api.ts" ><b>APIS</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BASE_PATH" title="src/openapi/variables.ts" ><b>BASE_PATH</b>&nbsp;&nbsp;&nbsp;(src/.../variables.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#bootstrap" title="src/app/core/componentes/menu-tabla/menu-tabla.component.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(src/.../menu-tabla.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoriaEnum" title="src/openapi/model/addRecetaDto.ts" ><b>CategoriaEnum</b>&nbsp;&nbsp;&nbsp;(src/.../addRecetaDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoriaEnum" title="src/openapi/model/diaComidaDto.ts" ><b>CategoriaEnum</b>&nbsp;&nbsp;&nbsp;(src/.../diaComidaDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoriaEnum" title="src/openapi/model/ingredienteDto.ts" ><b>CategoriaEnum</b>&nbsp;&nbsp;&nbsp;(src/.../ingredienteDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoriaEnum" title="src/openapi/model/ingredienteSimpleDto.ts" ><b>CategoriaEnum</b>&nbsp;&nbsp;&nbsp;(src/.../ingredienteSimpleDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoriasEnum" title="src/openapi/model/menuSemanalCreateDto.ts" ><b>CategoriasEnum</b>&nbsp;&nbsp;&nbsp;(src/.../menuSemanalCreateDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#COLLECTION_FORMATS" title="src/openapi/variables.ts" ><b>COLLECTION_FORMATS</b>&nbsp;&nbsp;&nbsp;(src/.../variables.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DiaEnum" title="src/openapi/model/addRecetaDto.ts" ><b>DiaEnum</b>&nbsp;&nbsp;&nbsp;(src/.../addRecetaDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DiaEnum" title="src/openapi/model/diaComidaDto.ts" ><b>DiaEnum</b>&nbsp;&nbsp;&nbsp;(src/.../diaComidaDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EMOJIS_POR_CATEGORIA" title="src/app/core/services/utils.ts" ><b>EMOJIS_POR_CATEGORIA</b>&nbsp;&nbsp;&nbsp;(src/.../utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaBoolean.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaBoolean.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaListaCompraDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaListaCompraDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaListIngredienteDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaListIngredienteDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaListListaCompraDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaListListaCompraDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaListMenuSemanalDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaListMenuSemanalDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaListRecetaDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaListRecetaDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaLoginResponse.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaLoginResponse.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaMenuSemanalDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaMenuSemanalDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaUsuarioDto.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaUsuarioDto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EstadoEnum" title="src/openapi/model/apiRespuestaVoid.ts" ><b>EstadoEnum</b>&nbsp;&nbsp;&nbsp;(src/.../apiRespuestaVoid.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RolEnum" title="src/openapi/model/usuarioDto.ts" ><b>RolEnum</b>&nbsp;&nbsp;&nbsp;(src/.../usuarioDto.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/openapi/api/api.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="APIS"></a>
+                    <span class="name">
+                        <span ><b>APIS</b></span>
+                        <a href="#APIS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[AuthControllerService, CategoriaIngredienteService, IngredienteService, ListaCompraResourceService, MenuSemanalService, RecetaService, UsuariosService]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/variables.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BASE_PATH"></a>
+                    <span class="name">
+                        <span ><b>BASE_PATH</b></span>
+                        <a href="#BASE_PATH"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;basePath&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="COLLECTION_FORMATS"></a>
+                    <span class="name">
+                        <span ><b>COLLECTION_FORMATS</b></span>
+                        <a href="#COLLECTION_FORMATS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    &#x27;csv&#x27;: &#x27;,&#x27;,
+    &#x27;tsv&#x27;: &#x27;   &#x27;,
+    &#x27;ssv&#x27;: &#x27; &#x27;,
+    &#x27;pipes&#x27;: &#x27;|&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/componentes/menu-tabla/menu-tabla.component.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bootstrap"></a>
+                    <span class="name">
+                        <span ><b>bootstrap</b></span>
+                        <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/addRecetaDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoriaEnum"></a>
+                    <span class="name">
+                        <span ><b>CategoriaEnum</b></span>
+                        <a href="#CategoriaEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Desayuno: &#x27;DESAYUNO&#x27; as CategoriaEnum,
+        Almuerzo: &#x27;ALMUERZO&#x27; as CategoriaEnum,
+        Comida: &#x27;COMIDA&#x27; as CategoriaEnum,
+        Merienda: &#x27;MERIENDA&#x27; as CategoriaEnum,
+        Cena: &#x27;CENA&#x27; as CategoriaEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DiaEnum"></a>
+                    <span class="name">
+                        <span ><b>DiaEnum</b></span>
+                        <a href="#DiaEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Lunes: &#x27;LUNES&#x27; as DiaEnum,
+        Martes: &#x27;MARTES&#x27; as DiaEnum,
+        Miercoles: &#x27;MIERCOLES&#x27; as DiaEnum,
+        Jueves: &#x27;JUEVES&#x27; as DiaEnum,
+        Viernes: &#x27;VIERNES&#x27; as DiaEnum,
+        Sabado: &#x27;SABADO&#x27; as DiaEnum,
+        Domingo: &#x27;DOMINGO&#x27; as DiaEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/diaComidaDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoriaEnum"></a>
+                    <span class="name">
+                        <span ><b>CategoriaEnum</b></span>
+                        <a href="#CategoriaEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Desayuno: &#x27;DESAYUNO&#x27; as CategoriaEnum,
+        Almuerzo: &#x27;ALMUERZO&#x27; as CategoriaEnum,
+        Comida: &#x27;COMIDA&#x27; as CategoriaEnum,
+        Merienda: &#x27;MERIENDA&#x27; as CategoriaEnum,
+        Cena: &#x27;CENA&#x27; as CategoriaEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DiaEnum"></a>
+                    <span class="name">
+                        <span ><b>DiaEnum</b></span>
+                        <a href="#DiaEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Lunes: &#x27;LUNES&#x27; as DiaEnum,
+        Martes: &#x27;MARTES&#x27; as DiaEnum,
+        Miercoles: &#x27;MIERCOLES&#x27; as DiaEnum,
+        Jueves: &#x27;JUEVES&#x27; as DiaEnum,
+        Viernes: &#x27;VIERNES&#x27; as DiaEnum,
+        Sabado: &#x27;SABADO&#x27; as DiaEnum,
+        Domingo: &#x27;DOMINGO&#x27; as DiaEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/ingredienteDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoriaEnum"></a>
+                    <span class="name">
+                        <span ><b>CategoriaEnum</b></span>
+                        <a href="#CategoriaEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Verduras: &#x27;VERDURAS&#x27; as CategoriaEnum,
+        Frutas: &#x27;FRUTAS&#x27; as CategoriaEnum,
+        Carne: &#x27;CARNE&#x27; as CategoriaEnum,
+        Pescado: &#x27;PESCADO&#x27; as CategoriaEnum,
+        Legumbres: &#x27;LEGUMBRES&#x27; as CategoriaEnum,
+        Lacteos: &#x27;LACTEOS&#x27; as CategoriaEnum,
+        Cereales: &#x27;CEREALES&#x27; as CategoriaEnum,
+        FrutosSecos: &#x27;FRUTOS_SECOS&#x27; as CategoriaEnum,
+        GrasasAceites: &#x27;GRASAS_ACEITES&#x27; as CategoriaEnum,
+        Especias: &#x27;ESPECIAS&#x27; as CategoriaEnum,
+        Conservas: &#x27;CONSERVAS&#x27; as CategoriaEnum,
+        Congelados: &#x27;CONGELADOS&#x27; as CategoriaEnum,
+        Otros: &#x27;OTROS&#x27; as CategoriaEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/ingredienteSimpleDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoriaEnum"></a>
+                    <span class="name">
+                        <span ><b>CategoriaEnum</b></span>
+                        <a href="#CategoriaEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Verduras: &#x27;VERDURAS&#x27; as CategoriaEnum,
+        Frutas: &#x27;FRUTAS&#x27; as CategoriaEnum,
+        Carne: &#x27;CARNE&#x27; as CategoriaEnum,
+        Pescado: &#x27;PESCADO&#x27; as CategoriaEnum,
+        Legumbres: &#x27;LEGUMBRES&#x27; as CategoriaEnum,
+        Lacteos: &#x27;LACTEOS&#x27; as CategoriaEnum,
+        Cereales: &#x27;CEREALES&#x27; as CategoriaEnum,
+        FrutosSecos: &#x27;FRUTOS_SECOS&#x27; as CategoriaEnum,
+        GrasasAceites: &#x27;GRASAS_ACEITES&#x27; as CategoriaEnum,
+        Especias: &#x27;ESPECIAS&#x27; as CategoriaEnum,
+        Conservas: &#x27;CONSERVAS&#x27; as CategoriaEnum,
+        Congelados: &#x27;CONGELADOS&#x27; as CategoriaEnum,
+        Otros: &#x27;OTROS&#x27; as CategoriaEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/menuSemanalCreateDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoriasEnum"></a>
+                    <span class="name">
+                        <span ><b>CategoriasEnum</b></span>
+                        <a href="#CategoriasEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Desayuno: &#x27;DESAYUNO&#x27; as CategoriasEnum,
+        Almuerzo: &#x27;ALMUERZO&#x27; as CategoriasEnum,
+        Comida: &#x27;COMIDA&#x27; as CategoriasEnum,
+        Merienda: &#x27;MERIENDA&#x27; as CategoriasEnum,
+        Cena: &#x27;CENA&#x27; as CategoriasEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/services/utils.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EMOJIS_POR_CATEGORIA"></a>
+                    <span class="name">
+                        <span ><b>EMOJIS_POR_CATEGORIA</b></span>
+                        <a href="#EMOJIS_POR_CATEGORIA"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;string, string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  FRUTAS: &#x27;🍓&#x27;,
+  VERDURAS: &#x27;🥦&#x27;,
+  CARNE: &#x27;🍗&#x27;,
+  PESCADO: &#x27;🐟&#x27;,
+  LEGUMBRES: &#x27;🫘&#x27;,
+  LACTEOS: &#x27;🍶&#x27;,
+  CEREALES: &#x27;🌾&#x27;,
+  GRASAS_ACEITES: &#x27;🧈&#x27;,
+  FRUTOS_SECOS: &#x27;🥜&#x27;,
+  DEFAULT: &#x27;🍴&#x27;
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapa de categorías a emojis representativos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaBoolean.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaListaCompraDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaListIngredienteDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaListListaCompraDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaListMenuSemanalDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaListRecetaDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaLoginResponse.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaMenuSemanalDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaUsuarioDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/apiRespuestaVoid.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EstadoEnum"></a>
+                    <span class="name">
+                        <span ><b>EstadoEnum</b></span>
+                        <a href="#EstadoEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Exito: &#x27;exito&#x27; as EstadoEnum,
+        Error: &#x27;error&#x27; as EstadoEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/openapi/model/usuarioDto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RolEnum"></a>
+                    <span class="name">
+                        <span ><b>RolEnum</b></span>
+                        <a href="#RolEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Admin: &#x27;ADMIN&#x27; as RolEnum,
+        User: &#x27;USER&#x27; as RolEnum
+    }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

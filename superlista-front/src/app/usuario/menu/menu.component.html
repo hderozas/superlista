@@ -1,0 +1,94 @@
+<div class="container-fluid vh-100 d-flex flex-column pastel-bg">
+  <!-- Cabecera -->
+  <div class="row border-bottom">
+    <app-header></app-header>
+  </div>
+
+  <!-- Título + botón -->
+  <div class="row sticky-top bg-white z-3 border-bottom shadow-sm py-2 bg-opacity-50">
+    <div class="d-flex justify-content-between align-items-center w-100 px-5">
+      <h3 class="m-0 text-primary pastel-title">🗓️ Mis menús semanales</h3>
+      <button class="btn btn-pastel btn-sm rounded-pill px-3" (click)="abrirModalNuevoMenu()">➕ Crear menú</button>
+    </div>
+  </div>
+
+  <!-- Cards de menús -->
+  <div class="row overflow-auto p-4" style="max-height: calc(100vh - 150px);">
+    <div class="col-md-4 mb-4" *ngFor="let menu of menus">
+      <div class="card card-menu pastel-shadow border-0 text-center h-100"
+           style="cursor: pointer;"
+           (click)="gestionarMenu(menu)">
+        <div class="card-header border-0 bg-transparent">
+          <h5 class="mb-1 text-secondary">📅 Menú #{{ menu.id }}</h5>
+        </div>
+
+        <div class="card-body px-3 py-2">
+          <div class="text-muted small mb-1">
+            <strong>{{ contarTotalRecetas(menu) }}</strong> recetas asignadas
+          </div>
+          <div class="small pastel-title mb-1">
+            {{ obtenerCategoriasMenu(menu).join(', ') }}
+          </div>
+          <div class="text-muted small text-truncate">
+            {{ obtenerNombresRecetas(menu).slice(0, 3).join(', ') }}{{ obtenerNombresRecetas(menu).length > 3 ? '...' : '' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal crear menú -->
+<app-modal #modalNuevoMenu [title]="'Nuevo menú'">
+  <div class="modal-body">
+    <div class="mb-3">
+      <label class="form-label">Selecciona qué comidas quieres en el menú</label>
+
+      <div *ngFor="let categoria of todasCategorias" class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          [checked]="categoriasSeleccionadas.includes(categoria)"
+          (change)="toggleCategoria(categoria, $any($event.target).checked)"/>
+        <label class="form-check-label">{{ categoria }}</label>
+      </div>
+    </div>
+  </div>
+
+  <button modal-footer class="btn btn-success" (click)="crearMenu()">
+    Crear menú
+  </button>
+</app-modal>
+
+<!-- Modal ver menú detalle -->
+<app-modal #modalMenuDetalle [title]="'Detalle del menú'" [size]="'xl'">
+  <div class="modal-body">
+    <div #contenidoParaPdf class="bg-white p-3 rounded pastel-shadow" style="min-width: 1000px;">
+      <app-menu-detalle *ngIf="menuSeleccionado" [menu]="menuSeleccionado"></app-menu-detalle>
+    </div>
+  </div>
+  <button modal-footer class="btn btn-primary" (click)="editarMenu()">
+    ✏️ Editar menú
+  </button>
+
+  <button modal-footer class="btn btn-danger" (click)="openModalConfirmar()">
+    🗑️ Eliminar menú
+  </button>
+
+  <button modal-footer class="btn btn-success" (click)="generarListaCompra()">
+    🛒 Generar lista de la compra
+  </button>
+
+  <button modal-footer class="btn btn-warning" (click)="descargarPDF()">
+    📄 Descargar PDF
+  </button>
+</app-modal>
+
+<!--Modal confirmar eliminación-->
+<app-modal #modalConfirmar [title]="'Detalle del menú'">
+  <div class="modal-body">
+    <p>¿Seguro que quieres eliminar el menú?</p>
+  </div>
+  <button modal-footer class="btn btn-danger" (click)="eliminarMenu()">Eliminar menú</button>
+</app-modal>

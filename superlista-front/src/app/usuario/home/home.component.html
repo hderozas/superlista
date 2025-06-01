@@ -1,0 +1,103 @@
+<div class="container-fluid py-4 pastel-bg vh-100">
+  <!-- Widget de cuenta flotante -->
+  <!-- Widget de cuenta flotante con hover -->
+  <div class="position-absolute top-0 end-0 p-3" (mouseenter)="mostrarCuenta = true" (mouseleave)="mostrarCuenta = false" style="z-index: 1000;">
+    <div class="card shadow-sm text-center overflow-hidden"
+         [ngClass]="{ 'p-3': mostrarCuenta, 'p-2': !mostrarCuenta }"
+         style="min-width: 60px; max-width: 220px; transition: all 0.3s ease;">
+
+      <i class="bi bi-person-circle display-6 mb-2"></i>
+
+      <div *ngIf="mostrarCuenta" class="transition-fade">
+        <h6 class="mb-1">{{ usuario.nombre }} {{ usuario.apellido }}</h6>
+        <small class="text-muted">{{ usuario.email }}</small>
+        <div class="d-flex justify-content-center mt-2 gap-2">
+          <button class="btn btn-sm btn-outline-primary" (click)="openModalCuenta()">Datos</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="logout()">Salir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bienvenida -->
+  <div class="text-center mb-4">
+    <h2>¡Bienvenido, {{ usuario.nombre || 'usuario' }}! 👋</h2>
+    <p class="lead">Tu centro de organización de comidas y compras</p>
+  </div>
+
+  <!-- Estadísticas rápidas -->
+  <div class="row text-center mb-5">
+    <div class="col">
+      <div class="stat-circle bg-melocoton text-white mx-auto mb-2">
+        {{ numIngredientes }}
+      </div>
+      <p>Ingredientes guardados</p>
+    </div>
+    <div class="col">
+      <div class="stat-circle bg-primary text-white mx-auto mb-2">
+        {{ numRecetas }}
+      </div>
+      <p>Recetas creadas</p>
+    </div>
+    <div class="col">
+      <div class="stat-circle bg-menta text-white mx-auto mb-2">
+        {{ numListas }}
+      </div>
+      <p>Listas de la compra</p>
+    </div>
+    <div class="col">
+      <div class="stat-circle bg-danger text-white mx-auto mb-2">
+        {{ numMenus }}
+      </div>
+      <p>Menús semanales</p>
+    </div>
+  </div>
+
+  <!-- Tarjetas de acceso rápido -->
+  <div class="row text-center">
+    <div class="col-md-3">
+      <div class="card pastel-card p-4 h-100 shadow-sm" (click)="goIngredientes()" role="button">
+        <div class="display-4">🥕</div>
+        <h5>Ingredientes</h5>
+        <p>Agrega o edita tus ingredientes favoritos.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card pastel-card p-4 h-100 shadow-sm" (click)="goRecetas()" role="button">
+        <div class="display-4">📖</div>
+        <h5>Recetas</h5>
+        <p>Crea, edita o consulta tus recetas personales.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card pastel-card p-4 h-100 shadow-sm" (click)="goListas()" role="button">
+        <div class="display-4">🛒</div>
+        <h5>Listas</h5>
+        <p>Organiza y comparte tus compras.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card pastel-card p-4 h-100 shadow-sm" (click)="goMenu()" role="button">
+        <div class="display-4">🗓️</div>
+        <h5>Menús</h5>
+        <p>Diseña tu semana de comidas fácilmente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consejo semanal -->
+  <div class="alert alert-info mt-5 text-center">
+    🧠 Consejo de la semana: planifica tu menú antes de hacer la lista de la compra para evitar desperdicios.
+  </div>
+</div>
+
+<app-modal #modalUsuario [title]="'Datos de ' + (usuario.username || '')">
+  <div class="modal-body">
+    <formly-form [form]="form" [model]="model" [fields]="fields" [options]="options"></formly-form>
+  </div>
+  <button modal-footer class="btn btn-success" (click)="actualizarDatos()">Guardar</button>
+
+</app-modal>
+
+

@@ -1,0 +1,32 @@
+.pastel-bg {
+  background: linear-gradient(135deg, #fefae0, #ede7ff);
+}
+
+.pastel-title {
+  color: #7a5eb5;
+}
+
+.btn-pastel {
+  background-color: #ede7ff;
+  color: #333;
+  border-radius: 12px;
+  padding: 0.6rem 1.4rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-pastel:hover {
+  transform: scale(1.05);
+  background-color: #e0d4ff;
+}
+
+.pastel-card {
+  border: 2px solid #cfcfff;
+  background: #fdfdff;
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pastel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(160, 160, 255, 0.2);
+}

@@ -1,0 +1,19 @@
+.card-ingrediente {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 1px solid;
+}
+
+::ng-deep .modal-body {
+  max-height: calc(100vh - 200px); /* deja espacio para header/footer */
+  overflow-y: auto;
+}
+
+/* Mejorar renderizado de emojis */
+@font-face {
+  font-family: 'Noto Emoji';
+  src: url(https://fonts.gstatic.com/s/notoemoji/v24/b7rN0sPwOP4nCkQ82-GUOflSuwg.woff2) format('woff2');
+}
+
+.emoji-fallback {
+  font-family: 'Noto Emoji', 'Segoe UI Emoji', sans-serif;
+}

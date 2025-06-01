@@ -1,0 +1,216 @@
+// 1. Sobrescribe variables ANTES de importar Bootstrap
+$primary: #91bbff;
+$secondary: #9d90ff;
+$success: #98fd84;
+$danger: #ff8fba;
+$warning: #fdff8c;
+$info: #cfc3ff;
+$light: #cfcfff;
+$dark: #333;
+$font-family-base: 'Segoe UI';
+$border-radius: 1rem;
+$body-bg: #ffffff;
+$body-color: #333;
+
+/*Temas personalizados*/
+$lavanda: #ede7ff;
+$lacteo: #fefae0;
+$legumbres: #a1866f;
+$carne: #ff8fff;
+$menta: #33ff92;
+$melocoton: #ffc466;
+/*sin usar*/
+$rosa: #ffc6e2;
+$gris-suave: #f0f0f0;
+
+$custom-colors: (
+  "lavanda": $lavanda,
+  "lacteo": $lacteo,
+  "legumbre": $legumbres,
+  "carne": $carne,
+  "rosa": $rosa,
+  "menta": $menta,
+  "melocoton": $melocoton,
+  "gris-suave": $gris-suave
+);
+
+$theme-colors: map-merge(
+    (
+      "primary": $primary,
+      "secondary": $secondary,
+      "success": $success,
+      "danger": $danger,
+      "warning": $warning,
+      "info": $info,
+      "light": $light,
+      "dark": $dark
+    ),
+    $custom-colors
+);
+
+// 2. Importa Bootstrap DESPUÉS
+@import "bootstrap/scss/bootstrap";
+
+// 3. Estilos globales
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: $font-family-base, Roboto, "Helvetica Neue", sans-serif;
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+// 4. Enlaces
+a {
+  color: $primary;
+  text-decoration: none;
+}
+a:hover {
+  color: darken($primary, 10%);
+}
+
+// 5. Botones
+.btn-custom {
+  background-color: $primary;
+  color: white;
+}
+
+.btn-pastel {
+  background-color: $lavanda;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  transition: transform 0.2s ease;
+}
+.btn-pastel:hover {
+  transform: scale(1.05);
+  background-color: #eef;
+}
+
+// 7. Drag preview
+.cdk-drag-preview {
+  width: auto !important;
+  max-width: 100%;
+}
+
+// 8. Scroll oculto
+.scroll-oculto {
+  max-height: calc(100vh - 150px);
+  overflow-y: scroll;
+  &::-webkit-scrollbar { display: none; }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+// 9. Tarjetas
+.card {
+  border-radius: $border-radius;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card-header,
+.list-group-item {
+  background-color: transparent;
+}
+
+// 10. Otros elementos decorativos
+.pastel-title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #7a5eb5;
+}
+
+.modal-content {
+  border-radius: $border-radius;
+}
+
+.card-lista {
+  border: 2px solid #cfcfff;
+  background: #fdfdff;
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card-lista:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(173, 155, 255, 0.2);
+}
+
+.card-menu {
+  background: #eceeff;
+  border-radius: $border-radius;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #ddd;
+}
+
+.card-menu:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(160, 160, 255, 0.2);
+}
+
+.pastel-shadow {
+  box-shadow: 0 2px 6px rgba(170, 170, 255, 0.15);
+}
+
+
+.pastel-table th,
+.pastel-table td {
+  border-color: #e0e0f8;
+}
+
+.pastel-cell {
+  min-height: 80px;
+  background-color: #fefefe;
+}
+
+.pastel-shadow {
+  box-shadow: 0 2px 8px rgba(180, 180, 255, 0.2);
+}
+
+.th-categoria {
+  width: 110px; // o usa un valor menor si quieres más estrecho (ej. 90px)
+  min-width: 90px;
+  max-width: 120px;
+}
+
+.responsive-text {
+  font-size: 0.7rem;
+
+  @media (min-width: 1500px) {
+    font-size: 0.85rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 0.9rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 1rem;
+  }
+}
+
+.pastel-bg {
+  background: linear-gradient(135deg, #fefae0, #ede7ff);
+}
+.pastel2-bg {
+  background: linear-gradient(135deg, #ede7ff, #fefae0);
+}
+
+.cdk-overlay-container .cdk-overlay-pane .mat-mdc-snack-bar-container.snackbar-success {
+  background-color: #4caf50 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.cdk-overlay-container .cdk-overlay-pane .mat-mdc-snack-bar-container.snackbar-error {
+  background-color: #f44336 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+
+
+
+
+

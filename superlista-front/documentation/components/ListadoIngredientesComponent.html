@@ -1,0 +1,1700 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>superlistafront documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">superlistafront documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ListadoIngredientesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-listado-ingredientes</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>CommonModule</code>
+                                <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+                            <code>FormlyModule</code>
+                            <code>DragDropModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./listado-ingredientes.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./listado-ingredientes.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buscarFields" >buscarFields</a>
+                            </li>
+                            <li>
+                                <a href="#buscarForm" >buscarForm</a>
+                            </li>
+                            <li>
+                                <a href="#buscarModel" >buscarModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#ingredientes" >ingredientes</a>
+                            </li>
+                            <li>
+                                <a href="#ingredienteSeleccionado" >ingredienteSeleccionado</a>
+                            </li>
+                            <li>
+                                <a href="#ingredientesOriginales" >ingredientesOriginales</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalNuevoIngrediente" >modalNuevoIngrediente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalReceta" >modalReceta</a>
+                            </li>
+                            <li>
+                                <a href="#nuevoIngredienteFields" >nuevoIngredienteFields</a>
+                            </li>
+                            <li>
+                                <a href="#nuevoIngredienteForm" >nuevoIngredienteForm</a>
+                            </li>
+                            <li>
+                                <a href="#nuevoIngredienteModel" >nuevoIngredienteModel</a>
+                            </li>
+                            <li>
+                                <a href="#recetasSeleccionadas" >recetasSeleccionadas</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aplicarFiltro" >aplicarFiltro</a>
+                            </li>
+                            <li>
+                                <a href="#getCardClasses" >getCardClasses</a>
+                            </li>
+                            <li>
+                                <a href="#guardarNuevoIngrediente" >guardarNuevoIngrediente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadIngredientes" >loadIngredientes</a>
+                            </li>
+                            <li>
+                                <a href="#modalRecetas" >modalRecetas</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#snackbarnok" >snackbarnok</a>
+                            </li>
+                            <li>
+                                <a href="#snackbarok" >snackbarok</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ingredienteService: <a href="../injectables/IngredienteService.html" target="_self">IngredienteService</a>, categoriaService: <a href="../injectables/CategoriaIngredienteService.html" target="_self">CategoriaIngredienteService</a>, snackBarService: MatSnackBar, refresh: <a href="../injectables/DataRefreshService.html" target="_self">DataRefreshService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:99</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ingredienteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IngredienteService.html" target="_self" >IngredienteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>categoriaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoriaIngredienteService.html" target="_self" >CategoriaIngredienteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBarService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>refresh</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataRefreshService.html" target="_self" >DataRefreshService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aplicarFiltro"></a>
+                    <span class="name">
+                        <span ><b>aplicarFiltro</b></span>
+                        <a href="#aplicarFiltro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>aplicarFiltro(m: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCardClasses"></a>
+                    <span class="name">
+                        <span ><b>getCardClasses</b></span>
+                        <a href="#getCardClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCardClasses(c: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarNuevoIngrediente"></a>
+                    <span class="name">
+                        <span ><b>guardarNuevoIngrediente</b></span>
+                        <a href="#guardarNuevoIngrediente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarNuevoIngrediente()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadIngredientes"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadIngredientes</b></span>
+                        <a href="#loadIngredientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadIngredientes()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalRecetas"></a>
+                    <span class="name">
+                        <span ><b>modalRecetas</b></span>
+                        <a href="#modalRecetas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modalRecetas(ing: IngredienteDto)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ing</td>
+                                            <td>
+                                                        <code>IngredienteDto</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackbarnok"></a>
+                    <span class="name">
+                        <span ><b>snackbarnok</b></span>
+                        <a href="#snackbarnok"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>snackbarnok(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>msg</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackbarok"></a>
+                    <span class="name">
+                        <span ><b>snackbarok</b></span>
+                        <a href="#snackbarok"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>snackbarok(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>msg</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscarFields"></a>
+                    <span class="name">
+                        <span ><b>buscarFields</b></span>
+                        <a href="#buscarFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormlyFieldConfig[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      key: &#x27;categoria&#x27;,
+      type: &#x27;select&#x27;,
+      props: {
+        placeholder: &#x27;Todas&#x27;,
+        options: []
+      },
+      hooks: {
+        onInit: field &#x3D;&gt; {
+          this.categoriaService.listarCategorias().subscribe({
+            next: res &#x3D;&gt; {
+              field.props!.options &#x3D; res.map(item &#x3D;&gt; ({
+                label: item.descripcion,
+                value: item.nombre
+              }));
+            }
+          });
+        }
+      }
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscarForm"></a>
+                    <span class="name">
+                        <span ><b>buscarForm</b></span>
+                        <a href="#buscarForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscarModel"></a>
+                    <span class="name">
+                        <span ><b>buscarModel</b></span>
+                        <a href="#buscarModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ingredientes"></a>
+                    <span class="name">
+                        <span ><b>ingredientes</b></span>
+                        <a href="#ingredientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IngredienteDto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ingredienteSeleccionado"></a>
+                    <span class="name">
+                        <span ><b>ingredienteSeleccionado</b></span>
+                        <a href="#ingredienteSeleccionado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ingredientesOriginales"></a>
+                    <span class="name">
+                        <span ><b>ingredientesOriginales</b></span>
+                        <a href="#ingredientesOriginales"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IngredienteDto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalNuevoIngrediente"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalNuevoIngrediente</b></span>
+                        <a href="#modalNuevoIngrediente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;NuevoIngredienteModal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalReceta"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalReceta</b></span>
+                        <a href="#modalReceta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;RecetasConIngredientesModal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevoIngredienteFields"></a>
+                    <span class="name">
+                        <span ><b>nuevoIngredienteFields</b></span>
+                        <a href="#nuevoIngredienteFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormlyFieldConfig[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      key: &#x27;nombre&#x27;,
+      type: &#x27;input&#x27;,
+      props: {
+        type: &#x27;text&#x27;,
+        label: &#x27;Nombre&#x27;,
+        required: true,
+        placeholder: &#x27;Nombre del ingrediente&#x27;
+      }
+    },
+    {
+      key: &#x27;categoria&#x27;,
+      type: &#x27;select&#x27;,
+      props: {
+        label: &#x27;Categoría&#x27;,
+        required: true,
+        options: []
+      },
+      hooks: {
+        onInit: field &#x3D;&gt; {
+          this.categoriaService.listarCategorias().subscribe({
+            next: res &#x3D;&gt; {
+              field.props!.options &#x3D; res.map(item &#x3D;&gt; ({
+                label: item.descripcion,
+                value: item.id
+              }));
+            }
+          });
+        }
+      }
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevoIngredienteForm"></a>
+                    <span class="name">
+                        <span ><b>nuevoIngredienteForm</b></span>
+                        <a href="#nuevoIngredienteForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevoIngredienteModel"></a>
+                    <span class="name">
+                        <span ><b>nuevoIngredienteModel</b></span>
+                        <a href="#nuevoIngredienteModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recetasSeleccionadas"></a>
+                    <span class="name">
+                        <span ><b>recetasSeleccionadas</b></span>
+                        <a href="#recetasSeleccionadas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/RecetaDto.html" target="_self" >RecetaDto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/core/componentes/listado-ingredientes/listado-ingredientes.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import {
+  CategoriaIngredienteService,
+  IngredienteDto,
+  IngredienteService,
+  RecetaDto
+} from &#x27;../../../../openapi&#x27;;
+import { NgClass, CommonModule } from &#x27;@angular/common&#x27;;
+import { FormGroup } from &#x27;@angular/forms&#x27;;
+import { FormlyFieldConfig, FormlyModule } from &#x27;@ngx-formly/core&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { DragDropModule } from &#x27;@angular/cdk/drag-drop&#x27;;
+import { DataRefreshService } from &#x27;../../services/DataRefreshService&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import {ModalComponent} from &#x27;../modal/modal.component&#x27;;
+
+@Component({
+  selector: &#x27;app-listado-ingredientes&#x27;,
+  templateUrl: &#x27;./listado-ingredientes.component.html&#x27;,
+  styleUrls: [&#x27;./listado-ingredientes.component.scss&#x27;],
+  standalone: true,
+  imports: [
+    NgClass,
+    CommonModule,
+    ModalComponent,
+    FormlyModule,
+    DragDropModule
+  ]
+})
+export class ListadoIngredientesComponent implements OnInit, OnDestroy {
+  ingredientes: IngredienteDto[] &#x3D; [];
+  ingredientesOriginales: IngredienteDto[] &#x3D; [];
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
+
+  @ViewChild(&#x27;RecetasConIngredientesModal&#x27;) modalReceta!: ModalComponent;
+  ingredienteSeleccionado!: string;
+  recetasSeleccionadas: RecetaDto[] &#x3D; [];
+
+  @ViewChild(&#x27;NuevoIngredienteModal&#x27;) modalNuevoIngrediente!: ModalComponent;
+  nuevoIngredienteForm &#x3D; new FormGroup({});
+  nuevoIngredienteModel: any &#x3D; {};
+  nuevoIngredienteFields: FormlyFieldConfig[] &#x3D; [
+    {
+      key: &#x27;nombre&#x27;,
+      type: &#x27;input&#x27;,
+      props: {
+        type: &#x27;text&#x27;,
+        label: &#x27;Nombre&#x27;,
+        required: true,
+        placeholder: &#x27;Nombre del ingrediente&#x27;
+      }
+    },
+    {
+      key: &#x27;categoria&#x27;,
+      type: &#x27;select&#x27;,
+      props: {
+        label: &#x27;Categoría&#x27;,
+        required: true,
+        options: []
+      },
+      hooks: {
+        onInit: field &#x3D;&gt; {
+          this.categoriaService.listarCategorias().subscribe({
+            next: res &#x3D;&gt; {
+              field.props!.options &#x3D; res.map(item &#x3D;&gt; ({
+                label: item.descripcion,
+                value: item.id
+              }));
+            }
+          });
+        }
+      }
+    }
+  ];
+
+  buscarForm &#x3D; new FormGroup({});
+  buscarModel: any &#x3D; {};
+  buscarFields: FormlyFieldConfig[] &#x3D; [
+    {
+      key: &#x27;categoria&#x27;,
+      type: &#x27;select&#x27;,
+      props: {
+        placeholder: &#x27;Todas&#x27;,
+        options: []
+      },
+      hooks: {
+        onInit: field &#x3D;&gt; {
+          this.categoriaService.listarCategorias().subscribe({
+            next: res &#x3D;&gt; {
+              field.props!.options &#x3D; res.map(item &#x3D;&gt; ({
+                label: item.descripcion,
+                value: item.nombre
+              }));
+            }
+          });
+        }
+      }
+    }
+  ];
+
+  constructor(
+    private ingredienteService: IngredienteService,
+    private categoriaService: CategoriaIngredienteService,
+    private snackBarService: MatSnackBar,
+    private refresh: DataRefreshService
+  ) {}
+
+  ngOnInit(): void {
+    this.refresh.refresh$.pipe(takeUntil(this.destroy$))
+      .subscribe(() &#x3D;&gt; this.loadIngredientes());
+    this.loadIngredientes();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private loadIngredientes() {
+    this.ingredienteService.obtenerTodosIngredientes().subscribe({
+      next: res &#x3D;&gt; {
+        this.ingredientesOriginales &#x3D; res.data || [];
+        this.ingredientes &#x3D; [...this.ingredientesOriginales];
+      },
+      error: () &#x3D;&gt; this.snackbarok(&#x27;Error cargando ingredientes&#x27;)
+    });
+  }
+
+  getCardClasses(c: string): string[] {
+    // tu lógica de clases...
+    return [&#x27;border-0&#x27;,&#x27;bg-light&#x27;];
+  }
+
+  modalRecetas(ing: IngredienteDto) {
+    this.ingredienteSeleccionado &#x3D; ing.nombre!;
+    this.recetasSeleccionadas &#x3D; ing.recetas || [];
+    this.modalReceta.open();
+  }
+
+  guardarNuevoIngrediente() {
+    this.ingredienteService.altaIngrediente(this.nuevoIngredienteModel).subscribe({
+      next: () &#x3D;&gt; {
+        this.loadIngredientes();
+        this.snackbarok(&#x27;Ingrediente creado&#x27;);
+        this.modalNuevoIngrediente.close();
+      },
+      error: () &#x3D;&gt; {
+        this.snackbarnok(&#x27;Error al crear ingrediente&#x27;);
+        this.modalNuevoIngrediente.close();
+      }
+    });
+  }
+
+  aplicarFiltro(m: { categoria?: IngredienteDto.CategoriaEnum }) {
+    this.ingredientes &#x3D; m.categoria
+      ? this.ingredientesOriginales.filter(i &#x3D;&gt; i.categoria &#x3D;&#x3D;&#x3D; m.categoria)
+      : [...this.ingredientesOriginales];
+  }
+
+  snackbarok(msg: string) { this.snackBarService.open(msg,&#x27;&#x27;,{ panelClass:[&#x27;snackbar-success&#x27;]}); }
+  snackbarnok(msg: string) { this.snackBarService.open(msg,&#x27;&#x27;,{ panelClass:[&#x27;snackbar-error&#x27;]}); }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;border rounded d-flex flex-column&quot; style&#x3D;&quot;height:100vh;&quot;&gt;
+  &lt;div class&#x3D;&quot;px-1 pt-2 flex-shrink-0&quot;&gt;
+    &lt;h6 class&#x3D;&quot;text-center mb-2&quot;&gt;Ingredientes&lt;/h6&gt;
+    &lt;div class&#x3D;&quot;d-flex align-items-start mx-2&quot;&gt;
+      &lt;div class&#x3D;&quot;flex-grow-1 me-2&quot;&gt;
+        &lt;formly-form
+          [form]&#x3D;&quot;buscarForm&quot;
+          [fields]&#x3D;&quot;buscarFields&quot;
+          [model]&#x3D;&quot;buscarModel&quot;
+          (modelChange)&#x3D;&quot;aplicarFiltro($event)&quot;&gt;
+        &lt;/formly-form&gt;
+      &lt;/div&gt;
+      &lt;button class&#x3D;&quot;btn btn-outline-primary&quot; (click)&#x3D;&quot;modalNuevoIngrediente.open()&quot;&gt;
+        &lt;i class&#x3D;&quot;bi bi-plus-lg&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;flex-grow-1 overflow-auto no-scrollbar px-1&quot;
+       cdkDropList
+       id&#x3D;&quot;ingredientesList&quot;
+       [cdkDropListData]&#x3D;&quot;ingredientes&quot;&gt;
+    &lt;div *ngFor&#x3D;&quot;let ing of ingredientes&quot; class&#x3D;&quot;p-2&quot;
+         cdkDrag [cdkDragData]&#x3D;&quot;ing&quot;&gt;
+      &lt;div class&#x3D;&quot;card&quot; [ngClass]&#x3D;&quot;getCardClasses(ing.categoria!)&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header d-flex justify-content-between&quot;&gt;
+          &lt;span&gt;{{ ing.nombre }}&lt;/span&gt;
+          &lt;button class&#x3D;&quot;btn btn-outline-primary btn-sm&quot; (click)&#x3D;&quot;modalRecetas(ing)&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-search&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;app-modal #RecetasConIngredientesModal [title]&#x3D;&quot;&#x27;Recetas con &#x27; + ingredienteSeleccionado&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;recetasSeleccionadas.length; else noHay&quot;&gt;
+    &lt;div class&#x3D;&quot;row row-cols-auto g-2 overflow-auto&quot; style&#x3D;&quot;max-height:60vh&quot;&gt;
+      &lt;div class&#x3D;&quot;col&quot; *ngFor&#x3D;&quot;let r of recetasSeleccionadas&quot;&gt;
+        &lt;div class&#x3D;&quot;card text-center&quot;&gt;
+          &lt;div class&#x3D;&quot;card-body p-2&quot;&gt;{{ r.nombre }}&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;ng-template #noHay&gt;
+    &lt;p class&#x3D;&quot;text-center mt-2&quot;&gt;No hay recetas con este ingrediente&lt;/p&gt;
+  &lt;/ng-template&gt;
+&lt;/app-modal&gt;
+
+&lt;app-modal #NuevoIngredienteModal title&#x3D;&quot;Nuevo ingrediente&quot;&gt;
+  &lt;formly-form [form]&#x3D;&quot;nuevoIngredienteForm&quot; [fields]&#x3D;&quot;nuevoIngredienteFields&quot; [model]&#x3D;&quot;nuevoIngredienteModel&quot;&gt;&lt;/formly-form&gt;
+  &lt;button modal-footer class&#x3D;&quot;btn btn-outline-success&quot; (click)&#x3D;&quot;guardarNuevoIngrediente()&quot;&gt;Guardar&lt;/button&gt;
+&lt;/app-modal&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./listado-ingredientes.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.no-scrollbar {
+  overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE 10+ */
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="border rounded d-flex flex-column" style="height:100vh;">  <div class="px-1 pt-2 flex-shrink-0">    <h6 class="text-center mb-2">Ingredientes</h6>    <div class="d-flex align-items-start mx-2">      <div class="flex-grow-1 me-2">        <formly-form          [form]="buscarForm"          [fields]="buscarFields"          [model]="buscarModel"          (modelChange)="aplicarFiltro($event)">        </formly-form>      </div>      <button class="btn btn-outline-primary" (click)="modalNuevoIngrediente.open()">        <i class="bi bi-plus-lg"></i>      </button>    </div>  </div>  <div class="flex-grow-1 overflow-auto no-scrollbar px-1"       cdkDropList       id="ingredientesList"       [cdkDropListData]="ingredientes">    <div *ngFor="let ing of ingredientes" class="p-2"         cdkDrag [cdkDragData]="ing">      <div class="card" [ngClass]="getCardClasses(ing.categoria!)">        <div class="card-header d-flex justify-content-between">          <span>{{ ing.nombre }}</span>          <button class="btn btn-outline-primary btn-sm" (click)="modalRecetas(ing)">            <i class="bi bi-search"></i>          </button>        </div>      </div>    </div>  </div></div><app-modal #RecetasConIngredientesModal [title]="\'Recetas con \' + ingredienteSeleccionado">  <div *ngIf="recetasSeleccionadas.length; else noHay">    <div class="row row-cols-auto g-2 overflow-auto" style="max-height:60vh">      <div class="col" *ngFor="let r of recetasSeleccionadas">        <div class="card text-center">          <div class="card-body p-2">{{ r.nombre }}</div>        </div>      </div>    </div>  </div>  <ng-template #noHay>    <p class="text-center mt-2">No hay recetas con este ingrediente</p>  </ng-template></app-modal><app-modal #NuevoIngredienteModal title="Nuevo ingrediente">  <formly-form [form]="nuevoIngredienteForm" [fields]="nuevoIngredienteFields" [model]="nuevoIngredienteModel"></formly-form>  <button modal-footer class="btn btn-outline-success" (click)="guardarNuevoIngrediente()">Guardar</button></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CrearMenuComponent', 'selector': 'app-crear-menu'},{'name': 'FormlyHorizontalWrapper', 'selector': 'formly-horizontal-wrapper'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePublicoComponent', 'selector': 'app-home-publico'},{'name': 'IngredientesComponent', 'selector': 'app-ingredientes'},{'name': 'ListadoIngredientesComponent', 'selector': 'app-listado-ingredientes'},{'name': 'ListadoRecetasComponent', 'selector': 'app-listado-recetas'},{'name': 'ListasComponent', 'selector': 'app-listas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MenuDetalleComponent', 'selector': 'app-menu-detalle'},{'name': 'MenuTablaComponent', 'selector': 'app-menu-tabla'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'RecetasComponent', 'selector': 'app-recetas'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ListadoIngredientesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ListadoIngredientesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

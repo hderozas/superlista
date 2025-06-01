@@ -1,0 +1,1433 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>superlistafront documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">superlistafront documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/componentes/header/header.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente standalone que representa el encabezado principal de la aplicación SúperLista.
+Gestiona la visualización y navegación entre las diferentes secciones: ingredientes, listas, recetas, menú y home.
+Permite al usuario visualizar y actualizar sus datos de perfil, así como cerrar sesión.
+Utiliza ngx-formly para construir dinámicamente el formulario de edición de perfil y muestra mensajes emergentes con SnackbarService.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;</code></pre></div>
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>FormsModule</code>
+                                <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+                            <code>FormlyModule</code>
+                            <code>NgIf</code>
+                            <code>NgClass</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./header.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#fields" >fields</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#modalUsuario" >modalUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#model" >model</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarCuenta" >mostrarCuenta</a>
+                            </li>
+                            <li>
+                                <a href="#options" >options</a>
+                            </li>
+                            <li>
+                                <a href="#usuario" >usuario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarDatos" >actualizarDatos</a>
+                            </li>
+                            <li>
+                                <a href="#cargarUsuarioInicial" >cargarUsuarioInicial</a>
+                            </li>
+                            <li>
+                                <a href="#goHome" >goHome</a>
+                            </li>
+                            <li>
+                                <a href="#goIngredientes" >goIngredientes</a>
+                            </li>
+                            <li>
+                                <a href="#goListas" >goListas</a>
+                            </li>
+                            <li>
+                                <a href="#goMenu" >goMenu</a>
+                            </li>
+                            <li>
+                                <a href="#goRecetas" >goRecetas</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, userService: <a href="../injectables/UsuariosService.html" target="_self">UsuariosService</a>, snackBar: <a href="../injectables/SnackbarService.html" target="_self">SnackbarService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/core/componentes/header/header.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de enrutamiento de Angular.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsuariosService.html" target="_self" >UsuariosService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para obtener y actualizar datos del usuario.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SnackbarService.html" target="_self" >SnackbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio personalizado para mostrar notificaciones.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarDatos"></a>
+                    <span class="name">
+                        <span ><b>actualizarDatos</b></span>
+                        <a href="#actualizarDatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarDatos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Envía los datos actualizados del usuario al backend.
+Muestra un mensaje de éxito o error y actualiza los datos locales.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarUsuarioInicial"></a>
+                    <span class="name">
+                        <span ><b>cargarUsuarioInicial</b></span>
+                        <a href="#cargarUsuarioInicial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarUsuarioInicial()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene los datos del usuario logueado y los carga en el formulario reactivo.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goHome"></a>
+                    <span class="name">
+                        <span ><b>goHome</b></span>
+                        <a href="#goHome"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goHome()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega a la página principal (home).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goIngredientes"></a>
+                    <span class="name">
+                        <span ><b>goIngredientes</b></span>
+                        <a href="#goIngredientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goIngredientes()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega a la vista de ingredientes.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goListas"></a>
+                    <span class="name">
+                        <span ><b>goListas</b></span>
+                        <a href="#goListas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goListas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega a la vista de listas de compra.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goMenu"></a>
+                    <span class="name">
+                        <span ><b>goMenu</b></span>
+                        <a href="#goMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega a la vista del menú semanal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goRecetas"></a>
+                    <span class="name">
+                        <span ><b>goRecetas</b></span>
+                        <a href="#goRecetas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goRecetas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega a la vista de recetas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra la sesión del usuario, limpia el localStorage y redirige a la raíz.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/core/componentes/header/header.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hook de inicialización del componente.
+Carga los datos iniciales del usuario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fields"></a>
+                    <span class="name">
+                        <span ><b>fields</b></span>
+                        <a href="#fields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormlyFieldConfig[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      key: &#x27;username&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        label: &#x27;Nombre de usuario&#x27;,
+        placeholder: &#x27;Introduce el nombre de usuario&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;nombre&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        label: &#x27;Nombre&#x27;,
+        placeholder: &#x27;Introduce el nombre&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;apellido&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        label: &#x27;Apellido&#x27;,
+        placeholder: &#x27;Introduce el apellido&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;email&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        type: &#x27;email&#x27;,
+        label: &#x27;Correo electrónico&#x27;,
+        placeholder: &#x27;Introduce el email&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;passwordAntiguo&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        type: &#x27;password&#x27;,
+        label: &#x27;Contraseña&#x27;,
+        placeholder: &#x27;Introduce la contraseña antigua&#x27;,
+        required: false
+      },
+    },
+    {
+      key: &#x27;passwordNuevo&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        type: &#x27;password&#x27;,
+        label: &#x27;Nueva contraseña&#x27;,
+        placeholder: &#x27;Introduce una nueva contraseña&#x27;,
+        required: false
+      },
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/core/componentes/header/header.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Definición de campos del formulario de edición del usuario usando ngx-formly.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/app/core/componentes/header/header.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo para la edición del usuario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalUsuario"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>modalUsuario</b></span>
+                        <a href="#modalUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ModalComponent.html" target="_self" >ModalComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;modalUsuario&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/componentes/header/header.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al modal usado para mostrar el formulario de edición del perfil.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="model"></a>
+                    <span class="name">
+                        <span ><b>model</b></span>
+                        <a href="#model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/app/core/componentes/header/header.component.ts:167</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Modelo que contiene los datos actuales del formulario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarCuenta"></a>
+                    <span class="name">
+                        <span ><b>mostrarCuenta</b></span>
+                        <a href="#mostrarCuenta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/componentes/header/header.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visualización del área de cuenta en el encabezado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="options"></a>
+                    <span class="name">
+                        <span ><b>options</b></span>
+                        <a href="#options"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/core/componentes/header/header.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opciones del formulario (vacías por defecto).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuario"></a>
+                    <span class="name">
+                        <span ><b>usuario</b></span>
+                        <a href="#usuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UsuarioDto</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/core/componentes/header/header.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Información del usuario actualmente logueado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
+import {FormGroup, FormsModule} from &#x27;@angular/forms&#x27;;
+import {ModalComponent} from &#x27;../modal/modal.component&#x27;;
+import {NgClass, NgForOf, NgIf} from &#x27;@angular/common&#x27;;
+import {UsuarioDto, UsuariosService} from &#x27;../../../../openapi&#x27;;
+import {FormlyFieldConfig, FormlyModule} from &#x27;@ngx-formly/core&#x27;;
+import {SnackbarService} from &#x27;../../services/snack-bar.service&#x27;;
+
+/**
+ * @component
+ * @name HeaderComponent
+ * @description
+ * Componente standalone que representa el encabezado principal de la aplicación SúperLista.
+ * Gestiona la visualización y navegación entre las diferentes secciones: ingredientes, listas, recetas, menú y home.
+ * Permite al usuario visualizar y actualizar sus datos de perfil, así como cerrar sesión.
+ * Utiliza ngx-formly para construir dinámicamente el formulario de edición de perfil y muestra mensajes emergentes con SnackbarService.
+ *
+ * @example
+ * &lt;app-header&gt;&lt;/app-header&gt;
+ */
+@Component({
+  selector: &#x27;app-header&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./header.component.html&#x27;,
+  imports: [
+    FormsModule,
+    ModalComponent,
+    FormlyModule,
+    NgIf,
+    NgClass
+
+  ],
+  styleUrl: &#x27;./header.component.scss&#x27;
+})
+export class HeaderComponent implements OnInit{
+
+  /**
+   * Constructor del componente.
+   * @param router Servicio de enrutamiento de Angular.
+   * @param userService Servicio para obtener y actualizar datos del usuario.
+   * @param snackBar Servicio personalizado para mostrar notificaciones.
+   */
+  constructor(private router:Router,
+              private userService: UsuariosService,
+              private snackBar: SnackbarService) {
+  }
+  /** Información del usuario actualmente logueado. */
+  usuario: UsuarioDto &#x3D; {};
+  /** Referencia al modal usado para mostrar el formulario de edición del perfil. */
+  @ViewChild(&#x27;modalUsuario&#x27;) modalUsuario!: ModalComponent;
+  /** Controla la visualización del área de cuenta en el encabezado. */
+  mostrarCuenta &#x3D; false;
+
+  /**
+   * Hook de inicialización del componente.
+   * Carga los datos iniciales del usuario.
+   */
+  ngOnInit(): void {
+    this.cargarUsuarioInicial();
+  }
+  /**
+   * Obtiene los datos del usuario logueado y los carga en el formulario reactivo.
+   */
+  cargarUsuarioInicial(){
+    this.userService.obtenerUsuarioPorEmail().subscribe({
+      next: data &#x3D;&gt; {
+        this.usuario &#x3D; data.data!;
+        this.model &#x3D; data.data!;
+        this.form.patchValue(this.model);
+      }
+    })
+  }
+  /** Navega a la vista de ingredientes. */
+  goIngredientes() {
+    this.router.navigate([&#x27;superlista/ingredientes&#x27;]);
+  }
+  /** Navega a la vista de listas de compra. */
+  goListas() {
+    this.router.navigate([&#x27;superlista/mis-listas&#x27;]);
+  }
+  /** Navega a la vista de recetas. */
+  goRecetas() {
+    this.router.navigate([&#x27;superlista/recetas&#x27;]);
+  }
+  /** Navega a la vista del menú semanal. */
+  goMenu() {
+    this.router.navigate([&#x27;superlista/menu&#x27;]);
+  }
+  /** Navega a la página principal (home). */
+  goHome() {
+    this.router.navigate([&#x27;superlista/home&#x27;]);
+  }
+  /** Definición de campos del formulario de edición del usuario usando ngx-formly. */
+  fields: FormlyFieldConfig[] &#x3D; [
+    {
+      key: &#x27;username&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        label: &#x27;Nombre de usuario&#x27;,
+        placeholder: &#x27;Introduce el nombre de usuario&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;nombre&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        label: &#x27;Nombre&#x27;,
+        placeholder: &#x27;Introduce el nombre&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;apellido&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        label: &#x27;Apellido&#x27;,
+        placeholder: &#x27;Introduce el apellido&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;email&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        type: &#x27;email&#x27;,
+        label: &#x27;Correo electrónico&#x27;,
+        placeholder: &#x27;Introduce el email&#x27;,
+        required: true,
+        hideRequiredMarker: true,
+      },
+    },
+    {
+      key: &#x27;passwordAntiguo&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        type: &#x27;password&#x27;,
+        label: &#x27;Contraseña&#x27;,
+        placeholder: &#x27;Introduce la contraseña antigua&#x27;,
+        required: false
+      },
+    },
+    {
+      key: &#x27;passwordNuevo&#x27;,
+      type: &#x27;input&#x27;,
+      wrappers: [&#x27;horizontal&#x27;],
+      props: {
+        type: &#x27;password&#x27;,
+        label: &#x27;Nueva contraseña&#x27;,
+        placeholder: &#x27;Introduce una nueva contraseña&#x27;,
+        required: false
+      },
+    },
+  ];
+  /** Formulario reactivo para la edición del usuario. */
+  form &#x3D; new FormGroup({});
+  /** Modelo que contiene los datos actuales del formulario. */
+  model: any &#x3D; {};
+  /** Opciones del formulario (vacías por defecto). */
+  options: any &#x3D; {};
+  /**
+   * Cierra la sesión del usuario, limpia el localStorage y redirige a la raíz.
+   */
+  logout() {
+    localStorage.clear();
+    this.router.navigate([&#x27;&#x27;]);
+  }
+
+  /**
+   * Envía los datos actualizados del usuario al backend.
+   * Muestra un mensaje de éxito o error y actualiza los datos locales.
+   */
+  actualizarDatos() {
+    this.userService.actualizarUsuario(this.model).subscribe({
+      next: response &#x3D;&gt; {
+        if (response.data &#x3D;&#x3D; true) {
+          this.cargarUsuarioInicial();
+          this.snackBar.success(&quot;Usuario actualizado con éxito&quot;);
+          this.modalUsuario.close();
+        }
+      },
+      error: error &#x3D;&gt; {
+        this.cargarUsuarioInicial();
+        this.snackBar.error(&quot;Hubo un error al actualizar los datos&quot;);
+        this.modalUsuario.close();
+      }
+    })
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-expand-lg bg-white bg-opacity-50 shadow-sm w-100 px-4 py-3 position-relative d-flex justify-content-between align-items-center&quot;&gt;
+  &lt;!-- Navegación principal --&gt;
+  &lt;div class&#x3D;&quot;d-flex flex-wrap gap-3 justify-content-center ms-5&quot;&gt;
+      &lt;button class&#x3D;&quot;btn btn-pastel&quot; (click)&#x3D;&quot;goHome()&quot;&gt;🏠 Home&lt;/button&gt;
+      &lt;button class&#x3D;&quot;btn btn-pastel&quot; (click)&#x3D;&quot;goIngredientes()&quot;&gt;🥕 Ingredientes&lt;/button&gt;
+      &lt;button class&#x3D;&quot;btn btn-pastel&quot; (click)&#x3D;&quot;goRecetas()&quot;&gt;📖 Recetas&lt;/button&gt;
+      &lt;button class&#x3D;&quot;btn btn-pastel&quot; (click)&#x3D;&quot;goListas()&quot;&gt;🛒 Listas&lt;/button&gt;
+      &lt;button class&#x3D;&quot;btn btn-pastel&quot; (click)&#x3D;&quot;goMenu()&quot;&gt;🗓️ Menús&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Widget de cuenta en esquina superior derecha --&gt;
+    &lt;div class&#x3D;&quot;account-widget&quot;
+         (mouseenter)&#x3D;&quot;mostrarCuenta &#x3D; true&quot;
+         (mouseleave)&#x3D;&quot;mostrarCuenta &#x3D; false&quot;&gt;
+      &lt;div class&#x3D;&quot;card shadow-sm text-center overflow-hidden&quot;
+           [ngClass]&#x3D;&quot;{ &#x27;p-3&#x27;: mostrarCuenta, &#x27;p-1&#x27;: !mostrarCuenta }&quot;
+           [style.width.px]&#x3D;&quot;mostrarCuenta ? 180 : 40&quot;
+           style&#x3D;&quot;transition: width 0.3s ease, padding 0.3s ease;&quot;&gt;
+
+        &lt;i class&#x3D;&quot;bi bi-person-circle fs-4 my-1&quot;&gt;&lt;/i&gt;
+
+        &lt;div *ngIf&#x3D;&quot;mostrarCuenta&quot; class&#x3D;&quot;transition-fade small&quot;&gt;
+          &lt;h6 class&#x3D;&quot;mb-1&quot;&gt;{{ usuario?.nombre || &#x27;&#x27; }} {{ usuario?.apellido || &#x27;&#x27; }}&lt;/h6&gt;
+          &lt;small class&#x3D;&quot;text-muted&quot;&gt;{{ usuario?.email || &#x27;&#x27; }}&lt;/small&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-center mt-2 gap-1&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-sm btn-outline-primary px-2 py-1&quot; (click)&#x3D;&quot;modalUsuario.open()&quot;&gt;Datos&lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-sm btn-outline-danger px-2 py-1&quot; (click)&#x3D;&quot;logout()&quot;&gt;Salir&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;app-modal #modalUsuario [title]&#x3D;&quot;&#x27;Datos de &#x27; + (usuario?.username || &#x27;&#x27;)&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;formly-form [model]&#x3D;&quot;model&quot; [fields]&#x3D;&quot;fields&quot; [options]&#x3D;&quot;options&quot; [form]&#x3D;&quot;form&quot;&gt;&lt;/formly-form&gt;
+  &lt;/div&gt;
+  &lt;button modal-footer class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;actualizarDatos()&quot;&gt;Guardar&lt;/button&gt;
+&lt;/app-modal&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg bg-white bg-opacity-50 shadow-sm w-100 px-4 py-3 position-relative d-flex justify-content-between align-items-center">  <!-- Navegación principal -->  <div class="d-flex flex-wrap gap-3 justify-content-center ms-5">      <button class="btn btn-pastel" (click)="goHome()">🏠 Home</button>      <button class="btn btn-pastel" (click)="goIngredientes()">🥕 Ingredientes</button>      <button class="btn btn-pastel" (click)="goRecetas()">📖 Recetas</button>      <button class="btn btn-pastel" (click)="goListas()">🛒 Listas</button>      <button class="btn btn-pastel" (click)="goMenu()">🗓️ Menús</button>    </div>    <!-- Widget de cuenta en esquina superior derecha -->    <div class="account-widget"         (mouseenter)="mostrarCuenta = true"         (mouseleave)="mostrarCuenta = false">      <div class="card shadow-sm text-center overflow-hidden"           [ngClass]="{ \'p-3\': mostrarCuenta, \'p-1\': !mostrarCuenta }"           [style.width.px]="mostrarCuenta ? 180 : 40"           style="transition: width 0.3s ease, padding 0.3s ease;">        <i class="bi bi-person-circle fs-4 my-1"></i>        <div *ngIf="mostrarCuenta" class="transition-fade small">          <h6 class="mb-1">{{ usuario?.nombre || \'\' }} {{ usuario?.apellido || \'\' }}</h6>          <small class="text-muted">{{ usuario?.email || \'\' }}</small>          <div class="d-flex justify-content-center mt-2 gap-1">            <button class="btn btn-sm btn-outline-primary px-2 py-1" (click)="modalUsuario.open()">Datos</button>            <button class="btn btn-sm btn-outline-danger px-2 py-1" (click)="logout()">Salir</button>          </div>        </div>      </div>    </div></nav><app-modal #modalUsuario [title]="\'Datos de \' + (usuario?.username || \'\')">  <div class="modal-body">    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>  </div>  <button modal-footer class="btn btn-success" (click)="actualizarDatos()">Guardar</button></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CrearMenuComponent', 'selector': 'app-crear-menu'},{'name': 'FormlyHorizontalWrapper', 'selector': 'formly-horizontal-wrapper'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomePublicoComponent', 'selector': 'app-home-publico'},{'name': 'IngredientesComponent', 'selector': 'app-ingredientes'},{'name': 'ListadoIngredientesComponent', 'selector': 'app-listado-ingredientes'},{'name': 'ListadoRecetasComponent', 'selector': 'app-listado-recetas'},{'name': 'ListasComponent', 'selector': 'app-listas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MenuDetalleComponent', 'selector': 'app-menu-detalle'},{'name': 'MenuTablaComponent', 'selector': 'app-menu-tabla'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'RecetasComponent', 'selector': 'app-recetas'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

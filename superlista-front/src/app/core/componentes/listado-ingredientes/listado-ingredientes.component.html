@@ -1,0 +1,55 @@
+<div class="border rounded d-flex flex-column" style="height:100vh;">
+  <div class="px-1 pt-2 flex-shrink-0">
+    <h6 class="text-center mb-2">Ingredientes</h6>
+    <div class="d-flex align-items-start mx-2">
+      <div class="flex-grow-1 me-2">
+        <formly-form
+          [form]="buscarForm"
+          [fields]="buscarFields"
+          [model]="buscarModel"
+          (modelChange)="aplicarFiltro($event)">
+        </formly-form>
+      </div>
+      <button class="btn btn-outline-primary" (click)="modalNuevoIngrediente.open()">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="flex-grow-1 overflow-auto no-scrollbar px-1"
+       cdkDropList
+       id="ingredientesList"
+       [cdkDropListData]="ingredientes">
+    <div *ngFor="let ing of ingredientes" class="p-2"
+         cdkDrag [cdkDragData]="ing">
+      <div class="card" [ngClass]="getCardClasses(ing.categoria!)">
+        <div class="card-header d-flex justify-content-between">
+          <span>{{ ing.nombre }}</span>
+          <button class="btn btn-outline-primary btn-sm" (click)="modalRecetas(ing)">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal #RecetasConIngredientesModal [title]="'Recetas con ' + ingredienteSeleccionado">
+  <div *ngIf="recetasSeleccionadas.length; else noHay">
+    <div class="row row-cols-auto g-2 overflow-auto" style="max-height:60vh">
+      <div class="col" *ngFor="let r of recetasSeleccionadas">
+        <div class="card text-center">
+          <div class="card-body p-2">{{ r.nombre }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noHay>
+    <p class="text-center mt-2">No hay recetas con este ingrediente</p>
+  </ng-template>
+</app-modal>
+
+<app-modal #NuevoIngredienteModal title="Nuevo ingrediente">
+  <formly-form [form]="nuevoIngredienteForm" [fields]="nuevoIngredienteFields" [model]="nuevoIngredienteModel"></formly-form>
+  <button modal-footer class="btn btn-outline-success" (click)="guardarNuevoIngrediente()">Guardar</button>
+</app-modal>

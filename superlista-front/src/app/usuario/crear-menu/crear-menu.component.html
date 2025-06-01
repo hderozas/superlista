@@ -1,0 +1,14 @@
+<div class="container-fluid d-flex flex-column vh-100 overflow-hidden pastel-bg" cdkDropListGroup>
+  <div class="row border-bottom">
+    <app-header></app-header>
+  </div>
+
+  <div class="row mx-1 my-2 justify-content-center flex-grow-1 overflow-hidden">
+    <div class="col-2 h-100 overflow-auto">
+      <app-listado-recetas ></app-listado-recetas>
+    </div>
+    <div class="col-10 h-100 d-flex overflow-auto align-items-center">
+      <app-menu-tabla [categorias]="categorias" [menuId]="menuId"></app-menu-tabla>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="d-flex flex-column h-100 shadow-sm border rounded p-3 bg-white bg-opacity-75">
+
+  <!-- Tabla de menú -->
+  <div class="table-responsive overflow-auto flex-grow-1 rounded-2">
+    <table class="table table-bordered text-center align-middle w-100 pastel-table rounded-bottom" style="table-layout: fixed;">
+      <thead class="table-light text-center align-middle">
+      <tr>
+        <th class="th-categoria small px-1 text-secondary">🍽️ Categoría / Día</th>
+        <th *ngFor="let d of diasSemana" class="text-secondary pastel-title fw-semibold responsive-text">{{ d.label }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cat of categorias">
+        <th class="th-categoria responsive-text text-center align-middle text-nowrap text-capitalize text-secondary bg-light py-1 px-1 small fw-semibold">
+          {{ cat }}
+        </th>
+        <td *ngFor="let d of diasSemana" class="align-middle p-0 bg-white">
+          <div class="d-flex flex-column p-1 min-height-100 overflow-auto pastel-cell rounded"
+               cdkDropList
+               [cdkDropListData]="menuData[d.key][cat]"
+               [cdkDropListConnectedTo]="['recetasList']"
+               (cdkDropListDropped)="onDrop($event, d.key, cat)">
+            <div *ngFor="let r of menuData[d.key][cat]"
+                 class="d-flex align-items-center justify-content-between small mb-1 shadow-sm rounded px-2 py-1 border border-1">
+              <span class="text-truncate responsive-text" [ngbTooltip]="r.nombre" container="body" placement="top" triggers="manual" #t="ngbTooltip" (mouseenter)="abrirTooltipConDelay(t)" (mouseleave)="cancelarTooltip(t)">
+                  {{ getEmojiDominantePorReceta(r) }} {{ r.nombre }}
+              </span>
+              <button
+                class="btn btn-sm btn-danger py-0 px-1 bi bi-x"
+                (click)="eliminarReceta(d.key, cat, r.id!)">
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botón de guardar -->
+  <div class="mt-3 text-end">
+    <button class="btn btn-success rounded-pill pastel-shadow" (click)="guardarMenu()">
+      💾 Guardar menú
+    </button>
+  </div>
+</div>
