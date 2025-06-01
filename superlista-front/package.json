@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "openapi": "rimraf src/openapi && openapi-generator-cli generate -i http://localhost:8080/v3/api-docs -g typescript-angular -o src/openapi --additional-properties=ngVersion=19,useRxJS6=true,providedInRoot=true,withInterfaces=true",
-    "compodoc": "npx compodoc -p tsconfig.app.json -d documentation"
+    "compodoc": "npx compodoc -p tsconfig.app.json -d doc"
 
   },
   "private": true,

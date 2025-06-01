@@ -41,7 +41,7 @@ La documentación técnica generada con:
 
 Puedes consultarla localmente en:
 ```
-./documentation/index.html
+./doc/index.html
 ```
 
 
