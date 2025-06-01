@@ -21,6 +21,28 @@ Este repositorio contiene **dos proyectos en uno**:
 
 ---
 
+## 🛢️ Configuración de la base de datos
+
+El proyecto utiliza **MySQL** como base de datos.  
+Por defecto, las propiedades de conexión están en:
+
+```
+/src/main/resources/application.properties
+```
+
+Asegúrate de tener:
+- Una base de datos creada (ej. `superlista`).
+- Usuario y contraseña configurados en el `application.properties`:
+  ```
+  spring.datasource.url=jdbc:mysql://localhost:3306/superlista
+  spring.datasource.username=TU_USUARIO
+  spring.datasource.password=TU_CONTRASEÑA
+  ```
+
+El esquema de tablas se genera automáticamente al arrancar gracias a JPA (`spring.jpa.hibernate.ddl-auto=create`).
+
+---
+
 ## 🚀 Cómo ejecutar el backend
 
 ### Requisitos
@@ -66,15 +88,19 @@ http://localhost:4200
 ```
 
 ---
-
 ## 🗂 Documentación
 
-- 🔧 **Compodoc (frontend)** → Genera documentación Angular
-- 📖 **Javadoc (backend)** → Genera documentación del código Java
+- 🔧 **Compodoc (frontend)** → Documentación generada de los componentes, servicios y estructura Angular.  
+  📁 Ruta:
+  ```
+  superlista-front/documentation/index.html
+  ```
 
-Las carpetas generadas (`documentation/` y `javadoc/`) pueden subirse aparte o incluirse como releases si lo deseas.
-
----
+- 📖 **Javadoc (backend)** → Documentación generada del código Java (servicios, controladores, entidades, etc.).  
+  📁 Ruta:
+  ```
+  superlista-back/doc/index.html
+  ```
 
 ## 🛠 Tecnologías usadas
 
